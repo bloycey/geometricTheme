@@ -1,0 +1,453 @@
+[%site_value id:'footer_javascript'%]
+	<script type="text/javascript" language="javascript">
+		$(document).ready(function() {
+			$.product_variationInit({
+				'loadtmplates': ['_buying_options', '_images','_header'],
+				'fns' : {
+					'onLoad' : function () {
+						$('.addtocart').button("loading");
+					},
+					'onReady' : function () {
+						$('.addtocart').button("reset");
+						$('.zoom').zoom();
+						$("#sale-end").countdown({
+							date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]"
+						});
+
+
+						var numImages = $('img.pp-product-img').length;
+							var setCenter;
+							var numslides;
+							if (numImages > 3) {
+								setCenter = true;
+								numslides = 3
+							} else {
+								setCenter = false;
+								numslides = 1;
+							}
+
+							$('.product-image-slider').slick({
+								centerMode: setCenter,
+								slidesToShow: numslides,
+								centerPadding: '0px',
+								infinite: true,
+								responsive: [
+								{
+								breakpoint: 1200,
+								centerMode: false,
+								settings: {
+									slidesToShow: 1
+								}
+								},
+								{
+									breakpoint: 767,
+								centerMode: false,
+								settings: {
+									slidesToShow: 1
+								}	
+								}
+							]
+							});
+
+							$('.product-more-info-text').click(function(){
+							if($(this).html() === "More Information") {
+								$(this).html('Less Information')
+							} else {
+								$(this).html("More Information");
+							}
+						})
+
+				
+
+			[%if [@config:ALLOW_NOSTOCK_CHECKOUT@] != 1%] 
+			$('.quantity-input').keyup(function(){
+			
+			var wantedQuantity = $('.quantity-input').val();
+			var variationQty = $('#variationData').data('variationqty');
+			var variationName = $('#variationData').data('variationname');
+
+				if (variationQty < wantedQuantity) {
+					$('.quantity-input').val(variationQty)
+					
+					var errormsg = "Sorry, we don't have " + wantedQuantity + " " + variationName + " in stock. Store quantity is currently: " + variationQty;
+
+					$('.stock-alert').html(errormsg).addClass("expandHeight");
+						setTimeout(function(){ 
+							$('.stock-alert').html('').removeClass('expandHeight');
+						}, 3000);
+				} 		
+			})
+
+			[%/if%]
+
+
+					},
+				}
+			});
+
+			[%if [@has_components@]%]
+				$.kit_variationInit({});
+			[%/if%]
+
+//Stock Validation - Only on regular and variable products. 
+
+[%if [@config:ALLOW_NOSTOCK_CHECKOUT@] != 1%] 
+$('.quantity-input').keyup(function(){
+
+var wantedQuantity = $('.quantity-input').val();
+var variationQty = $('#variationData').data('variationqty');
+var variationName = $('#variationData').data('variationname');
+
+	if (variationQty < wantedQuantity) {
+		$('.quantity-input').val(variationQty)
+		
+		var errormsg = "Sorry, we don't have " + wantedQuantity + " " + variationName + " in stock. Store quantity is currently: " + variationQty;
+
+		$('.stock-alert').html(errormsg).addClass("expandHeight");
+			setTimeout(function(){ 
+				$('.stock-alert').html('').removeClass('expandHeight');
+			}, 3000);
+	} 		
+
+})
+[%/if%]
+
+//Toggle more information button
+			$('.product-more-info-text').click(function(){
+				if($(this).html() === "More Information") {
+					$(this).html('Less Information')
+				} else {
+					$(this).html("More Information");
+				}
+			})
+
+//Slick Slider. Determine how many images there are. Only apply center mode if more than 3 images. Otherwise display a single image. This is due to a bug in Slick. Hopefully will be fixed soon.  
+
+var numImages = $('img.pp-product-img').length;
+var setCenter;
+var numslides;
+if (numImages > 3) {
+	setCenter = true;
+	numslides = 3
+} else {
+	setCenter = false;
+	numslides = 1;
+}
+
+$('.product-image-slider').slick({
+	centerMode: setCenter,
+  	slidesToShow: numslides,
+	  centerPadding: '0px',
+	  infinite: true,
+  	responsive: [
+    {
+      breakpoint: 1200,
+	  centerMode: false,
+      settings: {
+        slidesToShow: 1
+      }
+    },
+	{
+		breakpoint: 767,
+	  centerMode: false,
+      settings: {
+        slidesToShow: 1
+      }	
+	}
+  ]
+}); 
+
+		}); //Close document ready.
+</script>
+
+	<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/zoom/1.4/jquery.zoom-min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.zoom').zoom();
+		});
+	</script>
+
+	<script type="text/javascript" src="//cdn.neto.com.au/assets/neto-cdn/jcountdown/1.4/jquery.jcountdown.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$("#sale-end").countdown({
+				date: "[%format type:'date' format:'#K #d, #Y  #H:#I'%][@promo_end@][%/format%]"
+			});
+		});
+	</script>
+[%/site_value%]
+[%cache type:'display' id:'[@inventory_id@]'%]
+
+</div> <!--close main container -->
+
+<div class="container wide-container">
+<div class="col-xs-12">
+	[%breadcrumb%]
+		[%param *header%]
+			<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+					<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+				</li>
+		[%/param%]
+		[%param *body%]
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+			</li>
+		[%/param%]
+		[%param *footer%]
+			</ul>
+		[%/param%]
+	[%/breadcrumb%]
+
+	<div class="row">
+		<div class="col-xs-12">
+			[%load_ajax_template id:'_images' type:'item' template:'images' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y' /%]
+		</div>
+		<div class="col-xs-12 col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+			[%load_ajax_template id:'_header' type:'item' template:'header' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y' onload:'initSlider()'/%]
+			<form autocomplete="off">
+				[%list_item_variations id:'[@current_sku@]'%]
+					[%param header%]
+					<input type="hidden" id="_itmspec_sku" value="[%nohtml%][@SKU@][%/nohtml%]">
+					<hr>
+					<div class="row">
+					[%/param%]
+					[%param *variation_header%]
+							<div class="_itmspec_listopt col-xs-12 col-md-6" ref="[@specific_id@]">
+								<div class="variation-name">
+									<strong>[@specific_name@]</strong>
+								</div>
+								<div class="specific">
+									<input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+				[%/param%]
+				[%param *variation_body%]
+									<div class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+										<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+											[%if [@value_image@]%]
+												<img src="[@value_image@]" alt="[@value_name@]" />
+											[%/if%]
+											[%if [@value_name@]%]
+												[@value_name@]
+											[%ELSE%]
+												[@value_description@]
+											[%/if%]
+										</a>
+									</div>
+				[%/param%]
+				[%param *variation_body_radio%]
+									<label class="_itmspec_listitm btn btn-default" ref="[@specific_id@]_[@value_id@]">
+										<input class="_itmspec_radio" type="radio" name="_itmspec_radio[@specific_id@]" value="[@value_id@]" ref="[@specific_id@]_[@value_id@]" [%if [@selected@]%]checked[%/if%]> [@value_name@]
+									</label>
+				[%/param%]
+				[%param *variation_body_image%]
+									<span class="_itmspec_listitm" ref="[@specific_id@]_[@value_id@]">
+										<a class="_itmspec_lnk [%if [@selected@]%]_itmspec_selected[%/if%]" href="javascript:void(0);" ref="[@specific_id@]_[@value_id@]">
+											[%if [@value_image@]%]
+													<img src="[@value_image@]" alt="[@value_name@]">
+												[%else%]
+													[@value_name@]
+											[%/if%]
+										</a>
+									</span>
+				[%/param%]
+				[%param *variation_footer%]
+									<div class="clear"></div>
+								</div>
+							</div>
+				[%/param%]
+				[%param *variation_header_select%]
+							<div class="_itmspec_listopt col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 product-variations-dropdown" ref="[@specific_id@]">
+								<div class="variation-name">
+									<strong>[@specific_name@]:</strong>
+								</div>
+									<div class="specific">
+										<input type="hidden" class="_itmspec_val" ref="[@specific_id@]" value="[@selected_id@]">
+										<div class="n-wrapper-form-control">
+											<span class="_itmspec_optpl" ref="[@specific_id@]">
+												<select class="_itmspec_opt" ref="[@specific_id@]">
+					[%/param%]
+					[%param *variation_body_select%]
+													<option value="[@value_id@]" [%if [@selected@]%]selected[%/if%]>[@value_name@]</option>
+					[%/param%]
+					[%param *variation_footer_select%]
+												</select>
+											</span>
+										</div>
+									</div>
+							</div>
+					[%/param%]
+					[%param footer%]
+						</div>
+					[%/param%]
+				[%/list_item_variations%]
+				[%if ![@has_variation@]%]
+				[%load_template file:"products/includes/child_products.template.html"/%]
+				[%/if%]
+			</form>
+			[%if [@has_variation@] || ![@has_child@] AND ![@has_components@]%]
+				[%load_ajax_template id:'_buying_options' type:'item' template:'buying_options' preload:'1' tmpl_sku:'[@current_sku@]' tmpl_preview:'y'/%]
+			[%/if%]
+			[%if [@has_components@]%]
+			<hr>
+				<h2>Customise Your Purchase</h2>
+				[%load_template file:"products/includes/components.template.html"/%]
+			[%/if%]
+		</div>
+	</div>
+</div>
+</div>
+
+<div class="reviews-panel neutral-light-background">
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-12">
+				<div class="text-center">
+					<div class="star-rating">
+							<a class="reviews" href="#reviews" data-toggle="tab">
+									[%set [@data:ratings-count@] = 1 /%]
+									[%while [@data:ratings-count@] <= [@data:rating@]%]
+										[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+										<i class="icon ion-ios-star secondary-color" aria-hidden="true"></i>
+									[%/while%]
+									[%while [@data:ratings-count@] <= 5%]
+										[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
+										<i class="icon ion-ios-star-outline secondary-color" aria-hidden="true"></i>
+									[%/while%]
+								</a>
+					</div>
+					<h3 class="reviews-title"> 
+					[%if [@reviews@] > 0%]	Rated <span itemprop="ratingValue">[@rating@]</span>/<span itemprop="bestRating">5</span> based on <span itemprop="ratingCount">[@reviews@]</span> review[%if [@reviews@] > 1%]s[%/if%]. [%else%] No reviews yet. Leave your review below. [%/if%]
+					</h3>
+					<a href="[%URL page:'account' type:'write_review' qs:'item=[@SKU@]'%][%/URL%]"><button class="btn secondary-btn-solid review-btn">Add your review</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			[%load_ajax_template id:'_reviews' type:'item' template:'product_reviews' preload:'1' tmpl_preview:'y'/%]
+		</div>
+	</div>
+</div>
+			
+<div class="container wide-container">
+	<div class="row">
+			<div class="col-xs-12">
+				[%discount_products id:'[@SKU@]' template:'' show_all:'1' limit:'100'%]
+				[%param header%]
+					<div class="alert alert-success">
+						<h3>BONUS ITEMS! <small>Buy [@name@] Today &amp; Receive These For FREE!</small></h3>
+							<div class="row">
+					[%/param%]
+					[%param *body%]
+							<div class="col-sm-3">
+								<div class="thumbnail">
+									<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image">
+										<img src="[@thumb@]" alt="[@name@]">
+									</a>
+									<div class="caption">
+										<h3 class="title">
+											<a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a>
+										</h3>
+										<div class="text-success"><strong>FREE</strong> With This Item!</div>
+									</div>
+								</div>
+							</div>
+					[%/param%]
+					[%param footer%]
+					</div>
+				</div>
+				[%/param%]
+				[%/discount_products%]
+				[%free_gifts id:'[@SKU@]'%]
+					[%param *header%]
+				<div class="alert alert-success">
+					<h3>FREEBIES! <small>Buy [@name@] Today &amp; Choose From One Of These FREE Gifts!</small></h3>
+						<div class="row">
+					[%/param%]
+					[%param *body%]
+							<div class="col-sm-3">
+								<div class="thumbnail">
+									<a href="[%url type:'item ' id:'[@SKU@]'/%]" class="thumbnail-image">
+										<img src="[@thumb@]" alt="[@name@]">
+									</a>
+									<div class="caption">
+										<h3 class="title">
+											<a href="[%URL type:'item' id:'[@SKU@]'/%]">[%format type:'text' maxlength:'150' rmhtml:'1'%][@name@][%/FORMAT%]</a>
+										</h3>
+										<div class="text-success"><strong>FREE</strong> With This Item!</div>
+									</div>
+								</div>
+							</div>
+					[%/param%]
+					[%param *footer%]
+					</div>
+				</div>
+				[%/param%]
+				[%/free_gifts%]
+				
+				[%tracking_code type:'ProductDescription' /%]
+				[%upsell_products id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
+					[%param header%]
+					
+					<h3>We Also Recommend</h3>
+					<br />
+					<div class="row">
+					[%/param%]
+					[%param footer%]
+					</div>
+					[%/param%]
+				[%/upsell_products%]
+				[%crosssell id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
+					[%param header%]
+					
+					<h3>You May Also Like</h3>
+					<br />
+					<div class="row">
+					[%/param%]
+					[%param footer%]
+					</div>
+					[%/param%]
+				[%/crosssell%]
+				[%related_products id:'[@SKU@]' limit:'[@config:upsell_limit@]' template:'' show_all:'1'%]
+					[%param header%]
+					
+					<h3>Others Also Bought</h3>
+					<br />
+					<div class="row">
+					[%/param%]
+					[%param footer%]
+					</div>
+					[%/param%]
+				[%/related_products%]
+				[%thumb_list type:'products' sortby:'random' filter_category:'[@content_id@]' template:'' filter_exsku1:'[@sku@]' limit:'[@config:upsell_limit@]'%]
+					[%param *header%]
+					
+					<h3>More From This Category</h3>
+					<br />
+					<div class="row">
+					[%/param%][%param footer%]
+					</div>
+					[%/param%]
+				[%/thumb_list%]
+				[%/CACHE%]
+				[%if [@config:phistory_limit@]%]
+					[%product_history limit:'[@config:phistory_limit@]' template:''%]
+						[%param header%]
+						<div class="product-history">
+						<h3>Your Browsing History</h3>
+						<br />
+						<div class="row">
+						[%/param%]
+						[%param footer%]
+						</div>
+						</div>
+						[%/param%]
+					[%/product_history%]
+				[%/if%]
+		</div><!--/.col-xs-12-->
+	</div><!--/.row-->
+</div><!--/.container-->

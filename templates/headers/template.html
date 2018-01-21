@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="[%url_info name:'meta_keywords'/%]" />
+    <meta name="description" content="[%url_info name:'meta_description'/%]" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
+    <meta property="og:image" content="[%if [@config:current_page_type@] eq 'product'%][@config:homeurl@][%asset_url type:'product' id:'[@SKU@]' thumb:'full'/%][%ELSEIF [@config:current_page_type@] eq 'content'%][@config:homeurl@][%ASSET_url type:'content' id:'[@content_id@]' default:'/assets/website_logo.png'%][%/ASSET_url%][%ELSE%][@config:homeurl@]/assets/website_logo.png[%/if%]" />
+    <meta property="og:title" content="[%url_info name:'page_title'/%]" />
+    <meta property="og:site_name" content="[@config:website_name@]" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="[@config:canonical_url@]" />
+    <meta property="og:description" content="[%url_info name:'meta_description'/%]" /> [@config:GOOGLE_VERIFICATION_CODE@]
+    <title>[%url_info name:'page_title'/%]</title>
+    <link rel="canonical" href="[@config:canonical_url@]" />
+    <link rel="shortcut icon" href="/assets/favicon_logo.png?[@config:neto_css_version@]" />
+    <link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/vendors/slick.css[%end ntheme_asset%]" />
+    <link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/vendors/slick-theme.css[%end ntheme_asset%]" />
+    <link class="theme-selector" rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/app.css[%/ntheme_asset%]" media="all" />
+    <link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/style.css[%/ntheme_asset%]" media="all" />
+    <link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/vendors/animate.css[%/ntheme_asset%]" media="all" />
+    <link rel="stylesheet" type="text/css" href="[%ntheme_asset%]css/vendors/nice-select.css[%/ntheme_asset%]" media="all" />
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300|Source+Sans+Pro:300" rel="stylesheet">
+    <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    [%cdn_asset html:'1' type:'css' domain:'maxcdn.bootstrapcdn.com' library:'font-awesome' version:'4.7.0'%]css/font-awesome.min.css[%/cdn_asset%] [%cdn_asset html:'1' type:'css' library:'jquery_ui' version:'1.11.1'%]css/custom-theme/jquery-ui-1.8.18.custom.css[%/cdn_asset%] [%cdn_asset html:'1' type:'css' library:'fancybox' version:'2.1.5'%]jquery.fancybox.css[%/cdn_asset%]
+    <!--[if lte IE 8]>
+	[%cdn_asset html:'1' type:'js' library:'html5shiv' version:'3.7.0'%]html5shiv.js[%/cdn_asset%]
+	[%cdn_asset html:'1' type:'js' library:'respond.js' version:'1.3.0'%]respond.min.js[%/cdn_asset%]
+<![endif]-->
+    [%tracking_code type:'Declaration'/%]
+</head>
+[%site_value id:'footer_javascript'%]
+<script>
+
+//Sticky Menu
+
+$('nav').addClass('original').clone().insertAfter('nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('background-color', 'rgba(255, 255, 255, 0.85)').css('z-index','500').removeClass('original').hide();
+scrollIntervalID = setInterval(stickIt, 10);
+
+function stickIt() {
+  var orgElementPos = $('.original').offset();
+  orgElementTop = orgElementPos.top;               
+  if ($(window).scrollTop() >= (orgElementTop)) {
+    // scrolled past the original position; now only show the cloned, sticky element.
+
+    // Cloned element should always have same left position and width as original element.     
+    orgElement = $('.original');
+    coordsOrgElement = orgElement.offset();
+    leftOrgElement = coordsOrgElement.left;  
+    widthOrgElement = orgElement.css('width');
+    $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+    $('.original').css('visibility','hidden');
+  } else {
+    // not scrolled past the menu; only show the original menu.
+    $('.cloned').hide();
+    $('.original').css('visibility','visible');
+  }
+}
+      
+var wishlistOpen = false; 
+    $('.primary-fab').click(function(){
+        openWishMenu();
+    })
+
+//Toggle mobile menu arrows
+$('.mob-drop').click(function(){
+    $(this).find('.fa').toggleClass('fa-angle-down fa-angle-up');
+})
+    
+var sideNav = $("#wishlistSideNav");
+
+function mobileWishInit() {
+    $('.wish-sidebar-container').hide();
+    $('#mob-menu').show();
+    $('#menu-icon-open').addClass('secondary-color').css('fontSize', '30px');
+    $('#love-icon-open').removeClass('secondary-color').css('fontSize', '22px');
+}
+
+function desktopWishInit() {
+    $('#mob-menu').hide();
+    $('.wish-sidebar-container').show();
+    $('#love-icon-open').addClass('secondary-color').css('fontSize', '30px');
+    $('#menu-icon-open').removeClass('secondary-color').css('fontSize', '22px');
+}
+
+function openWishMenu() {
+    //Set width of sidenav based on screensize
+    if (wishlistOpen === false) {
+        $('#background-overlay').addClass('overlay-applied');
+            if ($(window).width() < 767) {
+                $(sideNav).css("left", "25%");
+                mobileWishInit();
+            } else if ($(window).width() < 992){
+                $(sideNav).css("left", "50%");
+                desktopWishInit();
+            } else if ($(window).width() < 1400){
+                $(sideNav).css("left", "70%");
+                desktopWishInit();
+            } else {
+                $(sideNav).css("left", "75%");
+                desktopWishInit();
+            }
+        
+        $('.closed-wishlist-menu').hide();
+        $('.open-wishlist-menu').show();
+
+        document.documentElement.style.overflowY = "hidden";
+        $('#wishlist-items').hide();
+        $.load_ajax_template('_wishlistList');
+        wishlistOpen = true;
+    } 
+    else {
+        //If window is already open then toggle the menu panel.
+        if ($(window).width() < 767) {
+        $('#mob-menu').show();
+        $('.wish-sidebar-container').hide();
+    } else {
+        $('#mob-menu').hide();
+        $('.wish-sidebar-container').show();
+    }
+}} 
+
+
+$('.open-wishlist-menu .wishlist-love-container').click(function(){
+    desktopWishInit();
+})
+
+$('.open-wishlist-menu .wishlist-menu-container').click(function(){
+    mobileWishInit();
+})
+
+$('#background-overlay, .closebtn, .close-fab').click(function(){
+    closeNav();
+})
+     
+function closeNav() {
+    $(sideNav).css('left', '100%');
+    $('#background-overlay').removeClass('overlay-applied');
+        document.documentElement.style.overflowY = "auto";
+    wishlistOpen = false;
+    $('.closed-wishlist-menu').show();
+    $('.open-wishlist-menu').hide();
+};
+
+// On resizing window close the sidemenu.
+
+$(window).on('resize', function(){
+    if (wishlistOpen === true) {
+        closeNav();
+    }
+})
+    
+
+$('.cart-box').hover(
+    function() {
+        $('.header-cart').addClass('open')
+    }
+)
+
+$('.cart-box').mouseleave(
+    function() {
+        $('.header-cart').removeClass('open')
+    }
+)
+
+ //Wishlist Code
+   
+    $(".primary-fab").click(function(){
+        if(wishlistOpen === false) {
+        load_wishlistList();
+        }
+    })
+
+    $('.sub-category-toggle').click(function(){
+        $(this).toggleClass('fa-angle-down fa-angle-up');
+    })
+
+	function load_wishlist(wishlist){
+        $('#loader').css('display', 'block');
+        $('.wishlist-thumbs').hide();
+         $.load_ajax_template('_wishlist',{mylist:wishlist},{'onLoad':function(){
+             $('#loader').fadeOut('slow');
+             $('.wishlist-thumbs').fadeIn('slow');
+         }});
+         $('#wishlist-items').show();
+    }  
+        
+    function load_wishlistList(){
+        var selected = $('input[name=optradio]:checked', '#wishform').data("id");
+        var selectedVal = $('input[name=optradio]:checked', '#wishform').val();
+        $('#wishlist-items').show();
+        load_wishlist(selectedVal);   
+    }
+
+    function deleteList(url){
+        $("#wishlist-delete").attr("src", url);
+        $("#wishlist-delete").load(function(){
+            $.load_ajax_template('_wishlistList');
+            $('#wishlist-items').hide();
+        })    
+    }
+        
+</script>
+[%/site_value%]
+
+<body id="n_[@config:current_page_type@]" class="n_[@CONFIG:TEMPLATELANG@]">
+
+<!-- Utility buttons in bottom right hand corner -->
+
+<div id="background-overlay"></div>      
+      
+<div id="wishlistSideNav" class="wishlistSideNav">
+    <div class="sidebar-container">
+        <div class="wish-sidebar-container">
+            <h2 class="wishlist-label tertiary-background">My Wishlists</h2>
+                <!-- loads the page for deleting the wishlist in a hidden iframe  -->
+                    <iframe id="wishlist-delete" src="" frameborder="0" style="display:none"></iframe>
+                <!-- If logged in -->
+                    [%USER id:'username' if:'ne' value:''%]
+                            [%load_ajax_template id:'_wishlistList' type:'content' template:'wishlist_list' preload:'0' tmpl_preview:'y'/%]
+                        <div id="wishlist-items">
+                            [%load_ajax_template id:'_wishlist' type:'content' template:'wishlist_ajax' preload:'0' tmpl_preview:'n'/%]
+                        </div>   
+                    [%END USER%]
+                <!-- If not logged in -->
+                    [%USER id:'username' if:'eq' value:''%]
+                    <div class="wishlist-login">
+                        <p>Once logged in all your wishlists will appear here.</p>
+                        <p><strong>Login / Register using the link below</strong></p>
+                        <a href="/_myacct/" class="btn primary-btn-solid">Login to [@config:company_name@]</a>
+                    </div>
+                    [%END USER%]
+            </div>
+            <ul class="nav navbar-nav closed-menu" id="mob-menu">
+                <h2 class="wishlist-label tertiary-background">Categories</h2> 
+                    <div class="mob-menu-items">
+                        [%cache type:'menu' id:'category-menu-mobile'%] [%content_menu type:'category' sortby:'sortorder' show_empty:'1'%] [%param *level_1%]
+                        <li class="mobile-first-lvl">
+
+                            <a [%IF [@next_level@] %]data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@id@]" class="collapsed mob-drop neutral-dark" [%ELSE%]href="[@url@]" [%/IF%]>
+                                [@name@] [%if [@next_level@]%]<i class="fa fa-angle-down primary-color" aria-hidden="true"></i>[%/if%]
+                            </a>
+                            [%if [@next_level@]%]
+                            <ul id="mob-menu-[@id@]" class="panel-collapse collapse collapse-menu list-unstyled">
+                                [@next_level@]
+                            </ul>
+                            [%/if%]
+                        </li>
+                        [%/param%] [%param *level_2%]
+                        <li class="mobile-second-lvl">
+                            <a [%IF [@next_level@] %]data-toggle="collapse" data-parent="#mob-menu" href="#mob-menu-[@id@]" class="collapsed mob-drop neutral-dark" [%ELSE%]href="[@url@]" [%/IF%]>
+                                            [@name@] [%if [@next_level@]%]<i class="fa fa-angle-down primary-color" aria-hidden="true"></i>[%/if%]
+                                        </a> [%if [@next_level@]%]
+                            <ul id="mob-menu-[@id@]" class="panel-collapse collapse collapse-menu list-unstyled">
+                                [@next_level@]
+                            </ul>
+                            [%/if%]
+                        </li>
+                        [%/param%] [%param *level_3%]
+                        <li class="mobile-third-lvl">
+                            <a href="[@url@]" class="neutral-dark">[@name@]</a>
+                        </li>
+                        [%/param%] [%/content_menu%] [%/ cache%]
+                    </div>
+            </ul>
+    </div>
+
+    <div class="utility-btns">
+        <div class="open-wishlist-menu">
+            <!-- cart icon -->      
+                <div class="cart-box text-center">
+                    <a href="[%url page:'checkout' type:'cart'/%]">
+                        <div class="header-cart btn-group">
+                                <i class="fa fa-shopping-cart center-absolute white"></i>
+                            <div class="item-counter secondary-background white text-center">
+                                <div class="item-counter-inner center-absolute" rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</div>
+                            </div> 
+                        </div>
+                    </a>
+                </div>
+            <!-- heart icon -->
+                    <div class="love-box primary-fab  wishlist-love-container text-center">
+                            <i class="ion-ios-heart wishlist-love center-absolute" id="love-icon-open"></i>
+                    </div>
+            <!-- menu icon -->
+                    <div class="love-box primary-fab wishlist-menu-container text-center">
+                            <i class="icon ion-navicon wishlist-menu center-absolute" id="menu-icon-open"></i>
+                    </div>
+            <!-- Close btn -->
+                    <div class="love-box close-fab text-center">
+                            <i class="fa fa-close center-absolute"></i>
+                    </div>
+        </div>
+
+            <div class="closed-wishlist-menu ">
+                <!-- Cart icon -->
+                <div class="cart-box primary-background text-center hidden-xs">
+                    <div id="header-cart" class="header-cart btn-group">
+                        <a href="[%url page:'checkout' type:'cart'/%]" id="cartcontentsheader">
+                            <i class="fa fa-shopping-cart center-absolute"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="box" id="neto-dropdown">
+                                <div class="body padding" id="cartcontents"></div>
+                                <div class="footer"></div>
+                            </li>
+                        </ul>
+                        <div class="item-counter secondary-background white text-center">
+                            <div class="item-counter-inner center-absolute" rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</div>
+                        </div> 
+                    </div>
+                </div>
+                <!-- Heart Icon (desktop) -->
+                <div class="love-box primary-fab white-background wishlist-love-container primary-border text-center hidden-xs" data-toggle="tooltip" title="Wishlists" data-placement="left">
+                        <i class="ion-ios-heart wishlist-love primary-color center-absolute "></i>
+                </div>
+                <!-- Menu Icon (mobile) -->
+                <div class="love-box primary-fab white-background wishlist-menu-container primary-border text-center hidden-sm hidden-md hidden-lg">
+                        <i class="icon ion-navicon wishlist-menu primary-color center-absolute "></i>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="container-fluid top-bar neutral-light-background">
+        <div class="container wide-container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-6 col-lg-4">
+                    <ul class="list-inline top-menu-items-left">
+                        <li>
+                            <ul class="list-inline">
+                                [%menu id:'top-bar-left'%] [%param *level_1%]
+                                <li class="top-menu-link [%if [@next_level@]%]dropdown dropdown-toggle[%/if%]"> <a href="[@url@]" [%if [@next_level@]%]class="dropdown-toggle" [%/if%]>[@name@] [%if [@next_level@]%]<span class="caret white"></span>[%/if%]</a> [%if [@next_level@]%]
+                                    <ul class="dropdown-menu">
+                                        [@next_level@]
+                                    </ul>
+                                    [%/if%]
+                                </li>
+                                [%/param%] [%param *level_2%]
+                                <li class="top-menu-link [%if [@next_level@]%]dropdown dropdown-toggle[%/if%]"> <a href="[@url@]" class="nuhover dropdown-toggle">[@name@]</a> [%if [@next_level@]%]
+                                    <ul class="dropdown-menu dropdown-menu-horizontal">
+                                        [@next_level@]
+                                    </ul>
+                                    [%/if%]
+                                </li>
+                                [%/param%] [%param *level_3%]
+                                <li class="top-menu-link [%if [@next_level@]%]dropdown dropdown-toggle[%/if%]"> <a href="[@url@]">[@name@]</a> [%if [@next_level@]%]
+                                    <ul class="dropdown-menu dropdown-menu-horizontal">
+                                        [@next_level@]
+                                    </ul>
+                                    [%/if%]
+                                </li>
+                                [%/param%] [%/menu%]
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hidden-xs hidden-sm hidden-md visible-lg col-lg-4">
+                    <ul class="list-inline top-links text-center">
+                        <li>
+                            <ul class="list-inline">
+                                [%if [@config:facebook_account_id@]%]
+                                <li><a href="[@config:facebook_account_id@]" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                [%/if%] [%if [@config:pinterest_account_id@]%]
+                                <li><a href="[@config:pinterest_account_id@]" target="_blank"><i class="fa fa-pinterest-p"></i></a></li>
+                                [%/if%] [%if [@config:twitter_account_id@]%]
+                                <li><a href="[@config:twitter_account_id@]" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                                [%/if%] [%if [@config:googleplus_account_id@]%]
+                                <li><a href="[@config:googleplus_account_id@]" target="_blank"><i class="fa fa-google-plus"></i></a></li>
+                                [%/if%] [%if [@config:youtube_account_id@]%]
+                                <li><a href="[@config:youtube_account_id@]" target="_blank"><i class="fa fa-youtube-play"></i></a></li>
+                                [%/if%] [%if [@config:instagram_account_id@]%]
+                                <li><a href="[@config:instagram_account_id@]" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                [%/if%] [%if [@config:tumblr_account_id@]%]
+                                <li><a href="[@config:tumblr_account_id@]" target="_blank"><i class="fa fa-tumblr"></i></a></li>
+                                [%/if%] [%if [@config:linkedin_account_id@]%]
+                                <li><a href="[@config:linkedin_account_id@]" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+                                [%/if%]
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="hidden-xs col-xs-12 col-sm-6 col-lg-4">
+                    <ul class="list-inline top-menu-items-right">
+                        <li>
+                            <ul class="list-inline">
+                                [%menu id:'top-bar-right'%] [%param *level_1%]
+                                <li class="top-menu-link [%if [@next_level@]%]dropdown dropdown-toggle[%/if%]"> <a href="[@url@]" [%if [@next_level@]%]class="dropdown-toggle" [%/if%]>[@name@] [%if [@next_level@]%]<span class="caret"></span>[%/if%]</a> [%if [@next_level@]%]
+                                    <ul class="dropdown-menu">
+                                        [@next_level@]
+                                    </ul>
+                                    [%/if%]
+                                </li>
+                                [%/param%] [%param *level_2%]
+                                <li class="top-menu-link [%if [@next_level@]%]dropdown dropdown-toggle[%/if%]"> <a href="[@url@]" class="nuhover dropdown-toggle">[@name@]</a> [%if [@next_level@]%]
+                                    <ul class="dropdown-menu dropdown-menu-horizontal">
+                                        [@next_level@]
+                                    </ul>
+                                    [%/if%]
+                                </li>
+                                [%/param%] [%param *level_3%]
+                                <li class="top-menu-link [%if [@next_level@]%]dropdown dropdown-toggle[%/if%]"> <a href="[@url@]">[@name@]</a> [%if [@next_level@]%]
+                                    <ul class="dropdown-menu dropdown-menu-horizontal">
+                                        [@next_level@]
+                                    </ul>
+                                    [%/if%]
+                                </li>
+                                [%/param%] [%/menu%]
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+</div>
+
+<div class="container wide-container wrapper-header">
+        <div class="row top-row">
+            <div class="col-xs-6 col-sm-4 search-bar-col hidden-xs">
+                <form name="productsearch" class="search-field hidden-xs center-absolute" method="get" action="/">
+                    <input type="hidden" name="rf" value="kw" />
+                    <div class="search-bar neutral-mid-border inactive">
+                        <input class="ajax_search header-ajax-search" placeholder="Search" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="text" />
+
+                        <button class="btn search primary-border primary-color white-background primary-background-hover white-hover center-absolute"><i class="fa fa-search"></i></button>
+                    
+                    </div>
+                </form>
+            </div>
+
+            <div class="col-xs-6 col-sm-4 wrapper-logo text-center">
+                <div class="header-logo center-absolute">
+                <a href="[@config:homeurl@]" title="[@config:company_name@]">
+                    <img class="logo" src="[@config:imageurl@]/website_logo.png?[@config:neto_css_version@]" alt="[@config:company_name@]" />
+                </a>
+                </div>
+            </div>
+            
+            <div class="col-xs-6 col-sm-4 account-cart-col">
+                <div class="center-absolute text-right">
+                    <a href="[%url page:'account'/%]">
+                        <button class="top-btn-account primary-border primary-color white-background primary-background-hover white-hover hidden-xs"><i class="fa fa-user center-absolute"></i><span class="btn-account-label neutral-dark hidden-xs">Account</span></button>
+                    </a>
+                    <a href="[%url page:'checkout' type:'cart'/%]">
+                        <button class="top-btn-cart primary-background white hidden-xs"><i class="fa fa-shopping-cart center-absolute"></i>
+                            <div class="item-counter secondary-background white text-center">
+                                <div class="item-counter-inner center-absolute" rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</div>
+                            </div> 
+                            <span class="btn-cart-label neutral-dark hidden-xs">Cart</span></button>
+                    </a>
+                    <div class="mobile-buttons visible-xs">
+                        <button class="top-btn-search primary-background white" data-toggle="collapse" data-target="#mobile-search"><i class="fa fa-search" ></i></button>
+                        <a href="[%url page:'account'/%]">
+                            <button class="top-btn-account primary-background white"><i class="fa fa-user"></i></button>
+                        </a>
+                        <a href="[%url page:'checkout' type:'cart'/%]">
+                            <button class="top-btn-cart primary-background white"><i class="fa fa-shopping-cart"></i></button>
+                        </a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+</div>
+    
+    <div id="mobile-search" class="row container collapse hidden-sm hidden-md hidden-lg">
+        <div class="col-xs-12 mobile-search-bar">
+            <form name="productsearch" class="search-field" method="get" action="/">
+                <input type="hidden" name="rf" value="kw" />
+                <input class="ajax_search header-ajax-search" placeholder="What are you searching for?" value="[%nohtml%][%filter ID:'keywords'%][%/filter%][%/nohtml%]" id="name_search" autocomplete="off" name="kw" type="text" />
+                <button type="submit" value="search" class="inner-search"><i class="fa fa-search primary-color"></i></button>
+            </form>
+        </div>   
+    </div>
+
+    <nav class="container-fluid header-divider nav navbar hidden-xs">
+        <div class="container-fluid menu-container">
+            <div class="row menu-row">
+                <div class="hidden-xs col-sm-12 no-padding">
+                    <ul class="category-menu">
+                        [%content_menu type:'category' sortby:'sortorder' show_empty:'1'%] [%param *level_1%]
+                        <li class="dropdown first-level-li secondary-background-hover white-hover"><a href="[@url@]" class="neutral-dark secondary-background-hover">[@name@] </a>[%if [@next_level@]%]<i class="fa fa-angle-down neutral-dark down-caret-menu"></i>[%/if%] [%if [@next_level@]%]
+                            <ul class="dropdown-menu arrow_box">
+                                [@next_level@]
+                            </ul>
+                            [%/if%] [%/param%] [%param *level_2%]
+
+                            <li [%if [@next_level@]%]class="dropdown-submenu" [%/if%]><a href="[@url@]" class="neutral-dark primary-color-hover">[@name@]</a>[%if [@next_level@]%]<i class="fa fa-angle-down neutral-dark sub-category-toggle primary-color-hover" data-target=".[@hierarchy@]-menu" data-toggle="collapse"></i>[%/if%] [%if [@next_level@]%]
+                                <div class="[@hierarchy@]-menu collapse">
+                                    <ul class="second-lvl-menu">
+                                        [@next_level@]
+                                    </ul>
+                                </div>
+
+                                [%/if%] [%/param%] [%param *level_3%]
+                                <li><a href="[@url@]" class="neutral-dark primary-color-hover"> - [@name@]</a></li>
+                                [%/param%] [%/content_menu%]
+                    </ul>
+                </div>
+            </div>
+    </nav>
+    <div class="container main-container" role="main">

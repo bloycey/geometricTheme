@@ -1,0 +1,249 @@
+</div>
+[%SET [@page_type@]='category'/%]
+
+<!-- This below set tag controls whether or not the filter products sidebar is shown be default on page load. You will notice a few references to the "sidebarOpen" tag throughout a number of templates. The tag takes a boolean 'true'/'false' value.
+By default this tag is set to true. -->
+
+[%set [@sidebarOpen@]%]true[%/set%]
+
+<section class="category-header neutral-dark-background">
+
+<div class="row">
+		<div class="container wide-container category-heading-wrapper" >
+			<div class="col-xs-12 col-md-5 category-heading">
+					<h1 class="text-center uppercase white">
+						[%url_info name:'page_heading' if:'eq' value:''%]
+							[%PARAM if_true%]
+								[@content_name@]
+							[%/PARAM%]
+							[%PARAM if_false%]
+								[%url_info name:'page_heading'%][%end url_info%]
+							[%/PARAM%]
+						[%end url_info%]
+						
+						[%IF [@keywords@] == ''%]
+							[%FILTER ID:'keywords' if:'ne' value:''%][%NOHTML%][%FILTER ID:'keywords'%][%/FILTER%][%/NOHTML%][%/FILTER%]
+						[%/IF%]
+					</h1>		
+			</div>
+
+			<div class="col-xs-12 col-md-7 subcategory-items text-center">
+				[%content_menu content_type:'category' start_category:'[@content_id@]' sortby:'sortorder' show_empty:'1'%]
+					[%param header%]		
+					[%/param%]
+					[%param *level_1%]
+						<div class="subcategory-thumb text-center">
+						<a href="[@url@]">
+								<div class="subcategory-img-wrapper" style="background-image: url([%ASSET_URL type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/na.gif'/%])"></div>
+								<p class="white">[@name@]</p>
+						</a>
+						</div>
+					[%/param%]
+					[%param footer%]
+					[%/param%]
+					[%param *ifempty%]
+						<h4 class="white">
+							[@content_short_description1@]
+							[@content_short_description2@]
+							[@content_short_description3@]
+						</h4>
+					[%/param%]
+				[%/content_menu%]
+			</div>	
+		</div>
+</div>
+</section>	
+
+<div class="categories-wrapper">
+	<div class="container wide-container">
+	[%if ![@form:pgnum@] OR [@form:pgnum@] eq '1'%]
+		[%advert type:'text' template:'carousel' inherit:'n' limit:'10' ad_group:''%]
+			[%param *header%]
+				<div id="homepageCarousel" class="carousel slide">
+					[%if [@total_showing@] > 1%]
+						<ol class="carousel-indicators">
+							[%site_value id:'counter' type:'load'/%]
+						</ol>
+					[%/if%]
+					<div class="carousel-inner">
+			[%/param%]
+			[%param *footer%]
+					</div>
+					[%if [@total_showing@] > 1%]
+						<a class="left carousel-control" href="#homepageCarousel" data-slide="prev">
+							<span class="fa fa-chevron-left"></span>
+						</a>
+						<a class="right carousel-control" href="#homepageCarousel" data-slide="next">
+							<span class="fa fa-chevron-right"></span>
+						</a>
+					[%/if%]
+				</div>
+				<hr>
+			[%/param%]
+			[%param *ifempty%]
+			[%/param%]
+		[%/advert%]
+		[%advert type:'product' limit:'8' template:'' inherit:'n' ad_group:''%]
+			[%param *header%]
+				<div class="row">
+			[%/param%]
+			[%param footer%]
+				</div>
+				<hr>
+			[%/param%]
+		[%/advert%]
+	[%/if%]
+	</div>
+
+	[%site_value id:'footer_javascript'%]
+	<script>
+		$("#sidebarToggle").click(function(){
+
+		if($(this).html() == " Show Filters") {
+			$(this).html(" Hide Filters")
+		} else {
+			$(this).html(" Show Filters")
+		}
+			$("#left-sidebar").toggleClass("collapseit");
+			$("#category-content").toggleClass("col-sm-12 col-md-9");
+			$(".thumbnail-width").toggleClass("col-lg-3 col-lg-4");
+		})
+	</script>
+	[%/site_value%]
+
+
+	<div class="container wide-container">
+			<div id="results-wrapper">	
+				[%THUMB_LIST type:'products' limit:'[@config:THUMB_LIMIT@]' template:''%]
+						[%PARAM *header%]
+						<div class="row sort_container">
+							<div class="col-md-4 hidden-xs hidden-sm text-center hidden">
+								<div class="btn-text">
+									<strong>[@total_results@]</strong> Product[%if [@total_results@] > 1%]s[%/if%]&nbsp;Found
+								</div>
+							</div>
+							
+							<div class="col-xs-12 text-center">
+									[%breadcrumb%]
+									[%PARAM *header%]
+										<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+											<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+												<a href="[@config:home_url@]/products" itemprop="item"><span itemprop="name">All Categories</span></a>
+											</li>
+									[%/PARAM%]
+									[%PARAM *body%]
+										<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+											<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+										</li>
+									[%/PARAM%]
+									[%PARAM *footer%]
+										</ul>
+									[%/PARAM%]
+									[%/breadcrumb%]
+
+								<form method="get" class="form-horizontal" action="[@config:CURRENT_URL@]">
+									<input name="rf" type="hidden" value="[%FILTER_CODE%][%/FILTER_CODE%]">
+									<div class="form-group">
+										<div class="text-center">
+											<label class="sort-title neutral-dark">Sort by:</label>
+										</div>
+										<div class="col-xs-12">
+											<select name="sortby" onChange="return this.form.submit();" class="nice wide category-sort">
+												<option value="popular" [%SORTBY type:'products' if:'eq' value:'popular'%]selected[%/SORTBY%]>
+													Most Popular
+												</option>
+												<option value="name" [%SORTBY type:'products' if:'eq' value:'name'%]selected[%/SORTBY%]>
+													Name
+												</option>
+												<option value="SKU" [%SORTBY type:'products' if:'eq' value:'SKU'%]selected[%/SORTBY%]>
+													SKU
+												</option>
+												<option value="lowest_price" [%SORTBY type:'products' if:'eq' value:'lowest_price'%]selected[%/SORTBY%]>
+													Lowest Price
+												</option>
+												<option value="highest_price" [%SORTBY type:'products' if:'eq' value:'highest_price'%]selected[%/SORTBY%]>
+													Highest Price
+												</option>
+											</select>
+										</div>
+									</div>
+								</form>
+							</div>
+								<div>
+									<button class="btn hidden-xs hidden-sm neutral-mid-border" id="sidebarToggle"> [%if [@sidebarOpen@] eq 'true'%] Hide Filters[%else%] Show Filters[%/if%]</button>	
+								<hr>				
+								</div>
+							</div>
+							
+						[%load_template file:'cms/includes/sidebar.template.html'/%]	
+
+							<div class="[%VIEWBY type:'products' if:'eq' value:'list' if_true:'thumb_list' if_false:'thumb'%][%/VIEWBY%]">
+								<section class="row" aria-label="Products In Category">
+									[%/PARAM%]
+
+									[%PARAM *footer%]
+								</section>
+							</div>
+						
+							[%IF [@total_results@] > [@config:THUMB_LIMIT@]%]
+								<div class="row">
+									<div class="col-xs-12">
+											<div class="pagination-container">
+									
+													<div class="geometric-pagination text-center">
+														<hr class="center-absolute no-margins pagination-strikethrough tertiary">
+														[%paging limit:'3'%]
+													
+														[%PARAM *previous_page%]
+														<div class="no-padding text-left pagination-child pull-left">
+															<a href="[@url@]"><button class="pagination-prev btn tertiary-btn-ghost-white"><i class="icon ion-ios-arrow-left"></i><span class="pagination-label">Previous Page</span></button></a>
+														</div>
+														[%/PARAM%]
+													
+														[%PARAM *goback_pages%]
+														<div class="pagination-child">
+															<a href="[@url@]"><button class="pagination-center go-back btn tertiary-btn-ghost-white">[@PAGE@]</button></a>
+														</div>
+														[%/PARAM%]
+													
+														[%PARAM *current_page%]
+														<div class="active pagination-child">
+															<a href="[@url@]"><button class="pagination-center btn tertiary-btn-solid">[@PAGE@]</button></a>
+														</div>
+													
+														[%/PARAM%]
+														[%PARAM *gonext_pages%]
+														<div class="pagination-child">
+															<a href="[@url@]"><button class="pagination-center go-forward btn tertiary-btn-ghost-white">[@PAGE@]</button></a>
+														</div>
+														[%/PARAM%]  
+														
+														[%PARAM *next_page%]
+														<div class="no-padding text-right pagination-child pull-right">
+															<a href="[@url@]"><button class="pagination-next btn tertiary-btn-ghost-white"><span class="pagination-label">Next Page </span><i class="icon ion-ios-arrow-right"></i></button></a>
+														</div>
+														[%/PARAM%]
+													[%/paging%]
+													</div>
+											</div>
+									</div>
+								</div>
+							[%/IF%]
+						
+							[%/PARAM%]
+							[%PARAM *ifempty%]
+							<div class="row emptycat">
+								<div class="col-xs-12">
+									<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
+								</div>
+							</div>
+							[%/PARAM%]
+				[%/THUMB_LIST%]
+			</div>
+	</div>
+</div>
+
+
+
+
+

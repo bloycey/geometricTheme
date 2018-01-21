@@ -1,0 +1,19 @@
+
+<div id="loader" class="center-absolute" style="display:none"></div>
+<div class="wishlist-thumbs">
+[%thumb_list type:'products' template:'wishlist_modern' sortby:'wishlist' filter_wishlist:'[@^mylist@]' limit:'10000'%]
+    [%param *header%]
+      <h1>[@wishlist_name@]</h1>
+        <div class="thumb">
+	<!-- <ul class="thumbnails"> -->
+    [%/param%]
+    [%param *footer%]
+    	<!-- </ul> -->
+</div>
+<div class="clear"></div>
+    [%/param%]
+    [%param *ifempty%]
+        There's nothing in this wishlist.
+    [%/param%]
+[%/thumb_list%]
+</div>

@@ -1,0 +1,108 @@
+<div class="col-xs-12">
+	[%breadcrumb%]
+		[%PARAM *header%]
+			<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
+				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+					<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
+				</li>
+		[%/PARAM%]
+		[%PARAM *body%]
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+			</li>
+		[%/PARAM%]
+		[%PARAM *footer%]
+			</ul>
+		[%/PARAM%]
+	[%/breadcrumb%]
+	<h1 class="page-header">[@content_name@]</h1>
+	[%if ![@form:pgnum@] OR [@form:pgnum@] eq '1'%]
+		<div class="n-responsive-content">
+			[@content_short_description1@]
+			[@content_short_description2@]
+			[@content_short_description3@]
+		</div>
+		<div class="n-responsive-content">
+			[%parse%]
+				[@content_description1@]
+				[@content_description2@]
+				[@content_description3@]
+			[%/parse%]
+		</div>
+	[%/if%]
+</div>
+[%load_template file:'cms/includes/sidebar-default.template.html'/%]
+<ul class="pager">
+	[%a2z%]
+		[%PARAM *body%]
+			[%FORM id:'lead' if:'eq' value:'[@upper@]'%]
+				[%PARAM *if_true%]
+					<li class="active"><a href="[%URL type:'page' id:'[@content_id@]' qs:'lead=[@upper@]'%][%END URL%]">[@upper@]</a></li>
+				[%END PARAM%]
+				[%PARAM *if_false%]
+					<li><a href="[%URL type:'page' id:'[@content_id@]' qs:'lead=[@upper@]'%][%END URL%]">[@upper@]</a></li>
+				[%END PARAM%]
+			[%END FORM%]
+		[%END PARAM%]
+	[%END a2z%]
+    <li><a href="[%URL type:'page' id:'[@content_id@]' qs:'lead='%][%END URL%]">View All</a></li>
+</ul>
+[%thumb_list type:'brands' content_type:'' template:'brand-logo' limit:'20'%]
+	[%PARAM filter_1%][%FORM id:'lead'%][%END FORM%][%END PARAM%]
+	[%param *header%]
+	<div class="wrapper-brands">
+		<div class="row">
+		[%/param%]
+		[%param *footer%]
+		</div>
+	</div>
+		<div class="row">
+			<div class="col-xs-12">
+					<div class="pagination-container">
+			
+							<div class="geometric-pagination text-center">
+								<hr class="center-absolute no-margins pagination-strikethrough tertiary">
+								[%paging limit:'3'%]
+							
+								[%PARAM *previous_page%]
+								<div class="no-padding text-left pagination-child pull-left">
+									<a href="[@url@]"><button class="pagination-prev btn tertiary-btn-ghost-white"><i class="icon ion-ios-arrow-left"></i><span class="pagination-label">Previous Page</span></button></a>
+								</div>
+								[%/PARAM%]
+							
+								[%PARAM *goback_pages%]
+								<div class="pagination-child">
+									<a href="[@url@]"><button class="pagination-center go-back btn tertiary-btn-ghost-white">[@PAGE@]</button></a>
+								</div>
+								[%/PARAM%]
+							
+								[%PARAM *current_page%]
+								
+								<div class="active pagination-child">
+									<a href="[@url@]"><button class="pagination-center btn tertiary-btn-solid">[@PAGE@]</button></a>
+								</div>
+							
+								[%/PARAM%]
+								[%PARAM *gonext_pages%]
+								<div class="pagination-child">
+									<a href="[@url@]"><button class="pagination-center go-forward btn tertiary-btn-ghost-white">[@PAGE@]</button></a>
+								</div>
+							[%/PARAM%]  
+								
+							
+								[%PARAM *next_page%]
+								<div class="no-padding text-right pagination-child pull-right">
+									<a href="[@url@]"><button class="pagination-next btn tertiary-btn-ghost-white"><span class="pagination-label">Next Page </span><i class="icon ion-ios-arrow-right"></i></button></a>
+								</div>
+								[%/PARAM%]
+								
+							[%/paging%]
+							</div>
+		
+					</div>
+			</div>
+		</div>
+
+	[%/param%]
+[%/thumb_list%]
+</div>

@@ -1,0 +1,190 @@
+[%SITE_VALUE id:'footer_javascript'%]
+
+<script> 
+$(document).ready(function(){
+    $('.featured-brands').slick({
+        centerMode: true,
+        centerPadding: '0px',
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        arrows: false,
+        slidesToShow: 7,
+        accessibility: false,
+        responsive: [
+        {
+            breakpoint: 768,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                slidesToShow: 5
+            }
+            },
+        {
+            breakpoint: 480,
+            settings: {
+                arrows: false,
+                centerMode: true,
+                centerPadding: '0px',
+                slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 2000,
+                slidesToShow: 3
+            }
+            }
+        ]
+    });
+     
+     $('.home-slider').slick({
+            autoplay: true,
+            autoplaySpeed: 8000,
+            speed: 800,
+            fade: false,
+            dots: false,
+            arrows: true
+        });   
+		
+    var categoryButton1 = $('#categoriesBtn');
+    var categoryButton2 = $('#categoriesBtn2');
+
+    categoryButton1.click(function(){
+        $(this).hide();
+        categoryButton2.show();
+        })     
+    });
+</script>
+[%/SITE_VALUE%]
+
+</div>  <!--closing the container	-->
+
+<div class="container-fluid no-padding homepage-carousel-wrapper">
+[%if [@config:show_home_ads@]%]
+	[%advert type:'text' template:'carousel' limit:'10' ad_group:''%]
+		[%param *header%]
+			<div class="home-slider single-item c_slickWrapper">
+		[%/param%]
+		[%param *footer%]
+			</div>
+		[%/param%]
+		[%param *ifempty%]
+			<a class="neto-placeholder neto-placeholder-rotator btn-loads" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>" href="[@config:home_url@]/_cpanel?item=adw&page=view&id=New&plan_id=1">
+				Click to add a banner<br/>
+			</a>
+		[%/param%]
+	[%/advert%]
+[%/if%]
+</div>
+
+<div class="container">
+    <div class="row homepage-content-wrapper">
+        <div class="col-xs-12 col-sm-6 text-center homepage-content-left center-table">
+            <section id="homepage-content" class="n-responsive-content" aria-label="Main Description">[@page_content@]</section>
+        </div>
+        <div class="col-xs-12 col-sm-6 text-center hidden-xs homepage-content-right center-table">
+            <div class="img-wrapper">
+                <img src="[%asset_url type:'content' id:'[@content_id@]' default:'[@config:imageurl@]/pixel.gif'/%]" />
+            </div>
+        </div>	
+    </div> 
+</div>
+
+<div class="container-fluid no-padding brands-panel-container neutral-light-background">
+    <div class="container brands-panel neutral-light-background">
+    [%thumb_list type:'content' content_type:'brand' template:'brand' limit:'24' sortby:'sortorder'%]
+        [%param *header%]
+            <div class="row featured-brands">
+        [%/param%]
+        [%param *footer%]
+            </div>
+            <div class="show-brands-wrapper text-center">
+                <a class="btn btn-md secondary-btn-ghost-white" href="/brands">Show All Brands</a> 
+            </div>
+        [%/param%]
+    [%/thumb_list%]
+    </div>
+</div>
+
+<section class="homepage-categories">
+    <div class="container"> 
+                [%thumb_list type:'content' content_type:'category' template:'category' limit:'6' sortby:'sortorder-desc'%]
+                [%param pgnum%]1[%/param%]
+                [%param *header%]
+                    <div class="row">
+                        <div class="text-center col-xs-12">
+                            <h2 class="ribbon-heading-center primary-border-top-bottom primary-color">Shop by Category</h2>
+                        </div>
+                            <div class="homepage-categories">
+                [%/param%]
+                [%param *footer%]
+                            </div>
+                    </div>
+                [%/param%]
+            [%/thumb_list%]
+        
+        <div id="more-categories" class="collapse">    
+            [%thumb_list type:'content' content_type:'category' template:'category' limit:'6' sortby:'sortorder-desc'%]
+            [%param pgnum%]2[%/param%]
+                [%param *header%]
+                <div class="row row-padded">
+                    <div class="homepage-categories">
+                [%/param%]
+                [%param *footer%]
+                    </div>
+                </div>
+                [%/param%]
+            [%/thumb_list%]
+        </div> 
+
+        <div class="text-center">
+            <a class="btn btn-lg secondary-btn-ghost" id="categoriesBtn" href="#more-categories" data-toggle="collapse">View More Categories</a>
+            <a class="btn btn-lg secondary-btn-ghost" id="categoriesBtn2" href="/products" style="display:none">View All Categories</a>
+        </div>
+    </div>
+</section>
+
+[%advert type:'text' ad_group:'home_advert' category:'0' limit:'1'%]
+  [%param *body%]
+   <div class="home-ad-section" style="background-image: url([%asset_url type:'adw' id:'[@ad_id@]' thumb:'alt_1' default:'[@config:imageurl@]/pixel.gif'/%])">
+       <div class="home-ad-overlay">
+        <div class="container home-ad-text text-center">
+            <h3>[@headline@]</h3>
+            <p class="white home-ad-description">[@description@]</p>
+            [%if [@linktext@]%]<p class="advert-description neutral-dark"><span class="btn btn-lg secondary-btn-ghost-white carousel-btn">[@linktext@]</span></p>[%/if%]
+        </div> 
+        </div>    
+   </div>
+   [%/param%]
+[%/advert%] 
+
+ <section class="homepage-grid-section">
+        <div class="container wide-container footer-adjacent-grid">
+            <div class="text-center">
+                <h2 class="ribbon-heading-center home-products primary-color primary-border-top-bottom">Featured Products</h2>
+            </div>
+            [%if [@config:show_home_ads@]%]
+                [%advert type:'product' limit:'8' template:'' ad_group:''%]
+                    [%param *header%]
+                        <div class="product-slider single-item row">
+                    [%/param%]
+                    [%param footer%]
+                        </div>
+                    [%/param%]
+                    [%param *ifempty%]
+                        [%random_products category:'0' template:'' limit:'8'%]
+                            [%param *header%]
+                                <hr />
+                                <div class="row">
+                            [%/param%]
+                            [%param *footer%]
+                                </div>
+                            [%/param%]
+                        [%/random_products%]
+                    [%/param%]
+                [%/advert%]
+            [%/if%]
+     </div>
+</section>		

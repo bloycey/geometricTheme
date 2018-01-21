@@ -1,0 +1,55 @@
+<div class="thumbnail-width no-padding col-xs-12">
+    <div class="product neutral-mid-border list-product">
+          <div class="product-image-wrapper col-xs-6 center-table">
+            <div>
+              <img src="[%asset_url type:'product' thumb:'thumbL' id:'[@SKU@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]" class="img-">
+                <div class="ribbon-container">
+                    [%if [@save@] > 0 AND ![@has_child@] %]
+                    <span class="price-tag primary-background ">
+                          [%format type:'percent'%][@save@][%/format%] OFF
+                    </span>
+                  [%/if%]
+                  [%if [@inpromo@]%]
+                    <span class="sale-tag secondary-background ">On Sale</span>
+                  [%/if%]
+                </div>
+            </div>
+          </div>
+                  <div class="product-details-wrapper white-background clearfix col-xs-6 center-table">
+                              <span class="product-wishlist"> 
+                                      <a class="wishlist_toggle list-wishlist-edit" rel="[@SKU@]">
+                                          <div class="wishlist-remove">
+                                              <span class="remove" rel="wishlist_text[@SKU@]"><i class="fa fa-pencil pencil-outline primary-background"></i></span>
+                                          </div>
+                                      </a>            
+                                  </span>
+                            <div>
+                              <a href="[@url@]">
+                                <div class="clearfix">
+                                  <p class="product-title-list text-center neutral-dark">[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/FORMAT%]</p> 
+                                </div>  
+                                  <h3 class="text-center thumbnail-price list-view">[%format type:'currency'%][@store_price@][%/format%]</h3>
+                              </a>               
+                                  <div class="thumbnail-btn-wrapper hidden-xs">
+                                    <form class="form-inline buying-options hidden-xs">
+                                        <input type="hidden" id="sku[@rndm@][@SKU@]" name="sku[@rndm@][@SKU@]" value="[@SKU@]">
+                                        <input type="hidden" id="model[@rndm@][@SKU@]" name="model[@rndm@][@SKU@]" value="[@model@]">
+                                        <input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb[@rndm@][@SKU@]" value="[@thumb@]">
+                                        <input type="hidden" id="qty[@rndm@][@SKU@]" name="qty[@rndm@][@SKU@]" value="[%if [@min_qty@] > 0%][@min_qty@][%else%]1[%/if%]" class="input-tiny">
+                                        [%if [@extra@] or [@has_child@] or [@editable_bundle@]%]
+                                          <a href="[@URL@]" title="View [@model@] Buying Options" class="btn secondary-btn-ghost thumbnail-addtocart btn-loads geometric-centre" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">See Options</a>
+                                        [%elseif [@store_quantity@] > 0 AND [@preorder@] %]
+                                          <button type="button" title="Pre-Order [@model@] Now!" class="addtocart btn tertiary-btn-solid thumbnail-addtocart btn-loads" rel="[@rndm@][@SKU@]" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Pre-Order</button>
+                                        [%elseif [@store_quantity@] > 0 AND ![@preorder@] %]
+                                          <button type="button" title="Add [@model@] to Cart" class="addtocart btn primary-btn-solid thumbnail-addtocart btn-loads" rel="[@rndm@][@SKU@]" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Add to Cart</button>
+                                        [%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+                                          <button type="button" title="Backorder [@model@]" class="addtocart btn tertiary-btn-solid thumbnail-addtocart btn-loads" rel="[@rndm@][@SKU@]" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Backorder</button>
+                                        [%else%]
+                                          <a class="notify_popup btn disabled-btn thumbnail-addtocart btn-block btn-loads geometric-centre" href="[@url@]" title="Out of Stock" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>">Out of Stock</a>
+                                        [%/if%]
+                                    </form>     
+                                  </div>
+                            </div>
+                  </div>    
+   </div>  
+</div>

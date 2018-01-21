@@ -1,0 +1,66 @@
+<div itemscope itemtype="http://schema.org/Product" class="row">
+	<meta itemprop="brand" content="[@brand@]"/>
+	<div class="wrapper-product-title col-xs-12 text-center">
+		<h1 itemprop="name">[@name@] [%if [@store_quantity@] > 0 AND [@preorder@] %]
+				<span itemprop="availability" content="preorder" class="label label-warning">Pre-order - Released [%format type:'date'%][@arrival_date@][%/format%]</span>
+			[%elseif [@store_quantity@] > 0 AND ![@preorder@] %]
+				<span itemprop="availability" content="in_stock" class="label label-success">In Stock</span>
+			[%elseif [@store_quantity@] < 1 AND [@config:ALLOW_NOSTOCK_CHECKOUT@] %]
+				<span itemprop="availability" content="out_of_stock" class="label label-danger">Sold Out -  Backorder Available</span>
+			[%else%]
+				<span itemprop="availability" content="out_of_stock" class="label label-danger">Sold Out</span>
+			[%/if%]
+			[%if [@availability_description@]%]
+				<span class="availability_description">
+					[@availability_description@]
+				</span>
+			[%/if%]</h1>
+		<div id="variationData" class="hidden" data-variationqty="[@store_quantity@]" data-variationname="[@name@]"></div>
+		[%if [@subtitle@]%]
+			<h3 class="text-muted">[@subtitle@]</h3>
+		[%/if%]
+		<hr>
+	</div>
+</div>
+
+	[%if ![@has_child@] || [@has_variation@]%]
+		<div itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="wrapper-pricing text-center col-sm-4">
+			<meta itemprop="priceCurrency" content="[@config:defaultcurrency@]">
+			[%if ![@inpromo@]%]
+				<h2 class="productprice productpricetext" itemprop="price" content="[@store_price@]" aria-label="Store Price">
+					[%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
+				</h2>
+				[%if [@save@] > 0%]
+					<div class="productrrp text-muted" aria-label="RRP Price">
+						RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]
+					</div>
+					<div class="productsave" aria-label="Save Price">
+						SAVE [%format type:'currency'%][@save_price@][%/format%] ([%format type:'percent'%][@save@][%/format%])
+					</div>
+				[%/if%]
+			[%else%]
+				<span class="productwasprice" aria-label="Was price">
+					WAS [%FORMAT type:'currency'%][@store_price@][%/FORMAT%]
+				</span>
+				[%if [@save@] > 0%]
+					<div class="productrrp muted" aria-label="RRP Price">
+						RRP [%FORMAT type:'currency'%][@retail@][%/FORMAT%]
+					</div>
+				[%/if%]
+				<h2 class="productpromo" itemprop="price" content="[@promo_price@]" aria-label="Promo Price">
+					NOW [%FORMAT type:'currency'%][@promo_price@][%/FORMAT%]
+				</h2>
+				[%if [@save@] > 0%]
+					<div class="productsave" aria-label="Save Price">
+						SAVE [%format type:'percent'%][@save@][%/format%]!
+					</div>
+				[%/if%]
+				<div class="productsavetext tertiary-color">
+					Sale Ends in <span id="sale-end" class="time"></span>
+				</div>
+				<div class="time-text tertiary-color" itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]">
+					[%format type:'date' format:' #H:#I #a, #d #K #Y'%][@promo_end@][%/format%]
+				</div>
+			[%/if%]
+		</div>
+	[%/if%]		

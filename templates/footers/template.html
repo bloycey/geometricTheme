@@ -1,0 +1,98 @@
+</div>
+</div>
+
+<footer class="neutral-dark-background"> 
+      <div class="footer-overlay"></div>         
+        <div class="row footer-newsletter primary-background">
+            <div class="col-xs-12 col-sm-6 footer-newsletter-text text-center">
+                    <h3>Subscribe to our newsletter</h3>
+                    <p>All the best deals. Direct to your inbox.</p>
+            </div>
+            <div class="col-xs-12 col-sm-6 footer-newsletter-signup text-center">
+                    <form method="post" id="subscribe-form" action="[%URL type:'page' id:'subscribe' https:'1'%][%END URL%]">
+                            <input type="hidden" name="list_id" value="1">
+                            <input type="hidden" name="opt_in" value="y">
+                            <div class="input-group">
+                                <input name="inp-email" class="form-control newsletter-email" type="email" value="[%nohtml%][@inp-email@][%/nohtml%]" placeholder="Email Address" required/>
+                                <input name="inp-submit" type="hidden" value="y" />
+                                <input name="inp-opt_in" type="hidden" value="y" />
+                                <span class="input-group-btn">
+                                    <input class="btn newsletter-btn secondary-btn-solid white-hover" type="submit" value="&#xf00c;" data-loading-text="<i class='fa fa-spinner fa-spin' style='font-size: 14px'></i>"/>
+                                </span>
+                            </div>
+                            <div class="text-center">
+                                    <p>No Spam ever. We promise!</p>
+                                </div>
+                    </form>        
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="container footer-content">
+                            [%menu id:'web_footer'%] [%param *level_1%]
+                            <div class="col-xs-12 col-sm-3 footer-heading text-center">
+                                <h4>[@name@]</h4>
+                                <ul class="nav nav-pills nav-stacked">
+                                    [@next_level@]
+                                </ul>
+                            </div>
+                            [%/param%] [%param *level_2%]
+                            <li><a href="[@url@]" class="primary-color-hover">[@name@]</a></li>
+                            [%/param%] [%/menu%]
+                            
+                              <div class="col-xs-12 col-sm-3 stay-in-touch text-center">
+                        <h4>Stay In Touch</h4>
+                        <ul class="list-inline list-social" itemscope itemtype="http://schema.org/Organization">
+                            <meta itemprop="url" content="[@config:home_url@]" />
+                            <meta itemprop="logo" content="[@config:home_url@][@config:imageurl@]/website_logo.png" />
+                            <meta itemprop="name" content="[@config:company_name@]" />
+                            <li><a href="[%url type:'page' id:'contact_us'/%]" target="_blank"><i class="fa fa-envelope primary-color-hover"></i></a></li>
+                            [%if [@config:facebook_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:facebook_account_id@]" target="_blank"><i class="fa fa-facebook-square text-facebook primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:twitter_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:twitter_account_id@]" target="_blank"><i class="fa fa-twitter-square text-twitter primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:googleplus_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:googleplus_account_id@]" target="_blank"><i class="fa fa-google-plus-square text-google-plus primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:youtube_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:youtube_account_id@]" target="_blank"><i class="fa fa-youtube-square text-youtube primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:instagram_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:instagram_account_id@]" target="_blank"><i class="fa fa-instagram text-instagram primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:pinterest_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:pinterest_account_id@]" target="_blank"><i class="fa fa-pinterest-square text-pinterest primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:tumblr_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:tumblr_account_id@]" target="_blank"><i class="fa fa-tumblr-square text-tumblr primary-color-hover"></i></a></li>
+                            [%/if%] [%if [@config:linkedin_account_id@]%]
+                            <li><a itemprop="sameAs" href="[@config:linkedin_account_id@]" target="_blank"><i class="fa fa-linkedin-square text-linkedin primary-color-hover"></i></a></li>
+                            [%/if%]
+                        </ul>
+                        <address role="contentinfo" aria-label="Company Details" class="white">
+                            <strong>Copyright &copy; [%format type:'date' format:'#Y'%]today[%/format%] [@config:company_name@]</strong><br>
+                            [%if [@config:company_abn@]%]<strong>[%if [@config:PRIMARY_ABN_LABEL@]%][@config:PRIMARY_ABN_LABEL@][%else%]ABN[%/if%]:</strong> [@config:company_abn@]<br>[%/ if%]
+                            [%if [@config:company_poaddr@]%]<strong>Address:</strong> [@config:company_poaddr@][%/ if%]
+                            [%if [@config:show_platform_branding@]%]<p class="small white"><a href="http://www.neto.com.au" title="E-commerce Shopping Cart" target="_blank" rel="noopener" class="white">E-commerce Software</a> By Neto</p>[%/if%]
+                        </address>
+                    </div>
+               </div>
+            </div>
+</footer>
+
+    <!-- Required Neto Scripts - DO NOT REMOVE -->
+    [%cdn_asset html:'1' type:'js' library:'jquery' version:'1.11.3'%]jquery.min.js[%/cdn_asset%]
+    [%cdn_asset html:'1' type:'js' library:'fancybox' version:'2.1.5'%]jquery.fancybox.pack.js[%/cdn_asset%]
+    [%NETO_JS html:'1' id:'main' /%]
+    [%cdn_asset html:'1' type:'js' library:'bootstrap' version:'3.3.6'%]bootstrap.min.js[%/cdn_asset%]
+
+    <script type="text/javascript" src="[%ntheme_asset%]js/custom.js[%/ntheme_asset%]"></script>
+    [%cdn_asset html:'1' type:'js' library:'jquery_ui' version:'1.11.1'%]js/jquery-ui-1.8.18.custom.min.js[%/cdn_asset%]
+    <script type="text/javascript" src="[%ntheme_asset%]js/vendors/jquery.nice-select.js[%/ntheme_asset%]"></script>
+    <script type="text/javascript" src="[%ntheme_asset%]js/vendors/slick.js[%/ntheme_asset%]"></script>
+    [%SITE_VALUE id:'footer_javascript' type:'load'/%]
+    <!-- Analytics -->
+    [%tracking_code type:'Visitor' /%]
+    <div class="npopup" style=""> <a href="javascript:void(0);" class="npopup-btn-close"></a>
+        <div class="npopup-body">
+        </div>
+    </div>
+    <div class="nactivity"><i class="fa fa-spinner fa-spin fa-inverse fa-3x fa-fw"></i></div>
+</body>
+</html>
