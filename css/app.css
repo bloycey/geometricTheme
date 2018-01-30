@@ -7122,6 +7122,7 @@ ul.imagelist li .imagethumb {
 }
 .n-responsive-content img {
   max-width: 100% !important;
+  height: auto !important;
 }
 .ir {
   display: block;
@@ -8000,6 +8001,13 @@ a:hover {
   width: 100%;
 }
 
+.fadeInUp {
+  -webkit-animation: fadeInUp 0.3s; /* Safari 4+ */
+  -moz-animation:    fadeInUp 0.3s; /* Fx 5+ */
+  -o-animation:      fadeInUp 0.3s;
+  animation: fadeInUp 0.3s;
+}
+
 /***********END DOCUMENT STYLES***************/
 
 /***********HEADER STYLES********************/
@@ -8507,9 +8515,8 @@ li.mobile-second-lvl:last-child, li.mobile-third-lvl:last-child {
   font-size: 18px;
   border-radius: 50%;
   border: none;
-  position: relative;
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
 }
 
 .top-btn-account {
