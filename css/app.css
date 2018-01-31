@@ -10263,3 +10263,106 @@ footer .fa {
     padding: 0 15%;
   }
 }
+
+/********** From style.css ****************/
+
+@media only screen and (min-width: 767px)  {
+	.top-row, .wrapper-logo {
+		height: 180px;
+	  }
+}
+
+.navbar-default {
+	background-color: #f8f8f8 ;
+	border-color: #e7e7e7;
+}
+.navbar-default .navbar-brand {
+	color: #777777;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+	color: #5e5e5e;
+}
+.navbar-default .navbar-text {
+	color: #777777;
+}
+.navbar-default .navbar-nav > li > a {
+	color: #777777;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+	color: #333333;
+	background-color: transparent;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+	color: #555555;
+	background-color: #e7e7e7;
+}
+.navbar-default .navbar-nav >.dropdown > a .caret {
+	border-top-color: #777777;
+	border-bottom-color: #777777;
+}
+.nav .caret {
+	border-top-color: #777777;
+	border-bottom-color: #777777;
+}
+.nav .open > a .caret, .nav .open > a:hover .caret, .nav .open > a:focus .caret {
+	border-top-color: #777777;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+	color: #333333;
+}
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+	background-color: #f8f8f8;
+	color: #333333;
+}
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+	border-color: transparent;
+}
+.dropdown-menu {
+	background-color: #ffffff;
+}
+.dropdown-menu .divider {
+	background-color: #e5e5e5;
+}
+.dropdown-menu > li > a {
+	color: #333333;
+}
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus {
+	color: #ffffff;
+	background-color: #aecbe8;
+}
+
+.well {
+	background-color: #f5f5f5;
+	border-color: #e3e3e3;
+}
+.panel-default {
+	border-color: #dddddd;
+}
+.panel-title {
+	color: #333333;
+}
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+	border-top-color: #dddddd;
+}
+
+.btn-info:active,
+.btn-info.active,
+.open > .dropdown-toggle.btn-info {
+background-image: none;
+}
+
+.label-default {
+	background-color: #999999;
+}
+.label-default[href]:hover,
+.label-default[href]:focus {
+	background-color: #808080;
+}
+
