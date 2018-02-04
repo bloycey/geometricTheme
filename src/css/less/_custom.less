@@ -33,7 +33,6 @@ body{
 // .input-group-btn has updated position and added styles
 //  removed styles for input-group-btn
 //  removed styles for .nav
-//  breadcrumb has had background removed
 //  label has had styles changed
 //  label-warning and label-danger have been edited
 //  .list-group-item has had styles commented out
@@ -2467,6 +2466,23 @@ background-image: none;
   margin-top: 80px;
 }
 
-.search-results-header + .categories-wrapper #left-sidebar .sidebar-description {
-  display: hidden;
-} 
+.search-results-header + .categories-wrapper .sidebar-description {
+  display: none;
+}
+
+.label {
+  display: inline-block;
+  padding: .2em .6em .3em;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: .25em;
+}
+
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+  background-color: transparent;
+}

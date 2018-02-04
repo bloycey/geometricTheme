@@ -10317,3 +10317,22 @@ footer .fa {
 .search-results-header + .categories-wrapper {
   margin-top: 80px;
 }
+.search-results-header + .categories-wrapper .sidebar-description {
+  display: none;
+}
+.label {
+  display: inline-block;
+  padding: .2em .6em .3em;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border-radius: .25em;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background-color: transparent;
+}
