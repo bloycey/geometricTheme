@@ -468,6 +468,11 @@ hr {
 .primary-btn-solid:hover, .secondary-btn-solid:hover, .tertiary-btn-solid:hover, .primary-btn-ghost:hover, .primary-btn-ghost-white:hover {
     transform: scale(1.05);
 }
+
+.primary-btn-solid:hover, .secondary-btn-solid:hover, .tertiary-btn-solid:hover {
+	color: #ffffff;
+}
+
 .white-btn-ghost {
 	border-color: #ffffff;
 	color: #ffffff;
