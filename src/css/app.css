@@ -10344,3 +10344,6 @@ footer .fa {
 #subscribe-form .input-group {
   width: 100%;
 }
+input.form-control.newsletter-email {
+  padding-right: 50px;
+}
