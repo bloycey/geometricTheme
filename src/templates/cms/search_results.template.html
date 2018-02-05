@@ -149,13 +149,14 @@ By default this tag is set to true. -->
 		[%PARAM *ifempty%]
 		<div class="row">
 			<div class="col-xs-12">
+				<div class="container">
 				[%FILTER ID:'keywords' if:'ne' value:''%]
 					<p>Search was unable to find any product results for '[%NOHTML%][%FILTER ID:'keywords'/%][%/NOHTML%]' you may have typed your word incorrectly, or are being too specific. Try using a broader search phrase.</p>
 				[%/FILTER%]
 				[%FILTER ID:'keywords' if:'eq' value:''%]
 					<p>This category is empty! Please try another category or use our search function to find what you are looking for. If you require further assistance please contact us.</p>
 				[%/FILTER%]
-				<hr />
+			</div>
 			</div>
 		</div>
 		[%/PARAM%]
