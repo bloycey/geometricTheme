@@ -274,7 +274,7 @@ $('.cart-box').mouseleave(
     <div class="utility-btns">
         <div class="open-wishlist-menu">
             <!-- cart icon -->     
-            <a href="[%url page:'checkout' type:'cart'/%]"></a> 
+            <a href="[%url page:'checkout' type:'cart'/%]"> 
                 <button class="cart-box text-center">
                         <div class="header-cart btn-group">
                                 <i class="fa fa-shopping-cart center-absolute white"></i>
@@ -300,10 +300,11 @@ $('.cart-box').mouseleave(
 
             <div class="closed-wishlist-menu ">
                 <!-- Cart icon -->
+                <a href="[%url page:'checkout' type:'cart'/%]" id="cartcontentsheader">
                 <button class="cart-box primary-background text-center hidden-xs">
                     <div id="header-cart" class="header-cart btn-group">
-                        <a href="[%url page:'checkout' type:'cart'/%]" id="cartcontentsheader">
-                            <i class="fa fa-shopping-cart center-absolute"></i></a>
+                        
+                            <i class="fa fa-shopping-cart center-absolute"></i>
                         <ul class="dropdown-menu">
                             <li class="box" id="neto-dropdown">
                                 <div class="body padding" id="cartcontents"></div>
@@ -315,6 +316,7 @@ $('.cart-box').mouseleave(
                         </div> 
                     </div>
                 </button>
+            </a>
                 <!-- Heart Icon (desktop) -->
                 <button class="love-box primary-fab white-background wishlist-love-container primary-border text-center hidden-xs" data-toggle="tooltip" title="Wishlists" data-placement="left">
                         <i class="ion-ios-heart wishlist-love primary-color center-absolute "></i>
