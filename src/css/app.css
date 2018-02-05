@@ -8943,6 +8943,10 @@ li.mobile-third-lvl:last-child {
   position: relative;
   display: inline-block;
   vertical-align: bottom;
+  border-color: transparent;
+}
+.cart-box:hover {
+  cursor: pointer;
 }
 .cart-box {
   height: 55px;

@@ -600,6 +600,11 @@ hr {
 		float: none;
 	}
 }
+
+.transparent-btn {
+	background: transparent;
+	border-color: transparent;
+}
 /*********Header Styles*************/
 .top-menu-link a:hover, .top-links a:hover {
     color: #cc5c5c /*{Primary-Site-Colour}*/;
