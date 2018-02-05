@@ -184,6 +184,7 @@ h5,
   .btn-success {
 	color: #fff;
 	background-color: #cc5c5c /*{Primary-Site-Colour}*/;
+	border-color: #cc5c5c /*{Primary-Site-Colour}*/;
 	opacity: 0.9;
   }
   .btn-success:focus,
