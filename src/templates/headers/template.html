@@ -157,6 +157,12 @@ $('.cart-box').hover(
     }
 )
 
+$('.cart-box').focus(
+    function() {
+        $('.header-cart').addClass('open')
+    }
+)
+
 $('.cart-box').mouseleave(
     function() {
         $('.header-cart').removeClass('open')
