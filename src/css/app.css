@@ -8957,9 +8957,6 @@ li.mobile-third-lvl:last-child {
   height: 55px;
   width: 55px;
 }
-.love-box:hover {
-  cursor: pointer;
-}
 .mobile-love-box {
   display: none;
   margin-bottom: 5px;

@@ -153,19 +153,20 @@ $(window).on('resize', function(){
 
 $('.cart-box').hover(
     function() {
-        $('.header-cart').addClass('open')
+        $('.header-cart').addClass('open');
+        $(this).css('cursor', 'pointer');
     }
 )
 
 $('.cart-box').focus(
     function() {
-        $('.header-cart').addClass('open')
+        $('.header-cart').addClass('open');
     }
 )
 
 $('.cart-box').mouseleave(
     function() {
-        $('.header-cart').removeClass('open')
+        $('.header-cart').removeClass('open');
     }
 )
 
