@@ -273,17 +273,17 @@ $('.cart-box').mouseleave(
 
     <div class="utility-btns">
         <div class="open-wishlist-menu">
-            <!-- cart icon -->      
+            <!-- cart icon -->     
+            <a href="[%url page:'checkout' type:'cart'/%]"></a> 
                 <button class="cart-box text-center">
-                    <a href="[%url page:'checkout' type:'cart'/%]">
                         <div class="header-cart btn-group">
                                 <i class="fa fa-shopping-cart center-absolute white"></i>
                             <div class="item-counter secondary-background white text-center">
                                 <div class="item-counter-inner center-absolute" rel="a2c_item_count">[%format type:'number' dp:'0'%][%CART id:'total_items'%][%/CART%][%/format%]</div>
                             </div> 
                         </div>
-                    </a>
                 </button>
+            </a>
             <!-- heart icon -->
                     <button class="love-box primary-fab  wishlist-love-container text-center">
                             <i class="ion-ios-heart wishlist-love center-absolute" id="love-icon-open"></i>
