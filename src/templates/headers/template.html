@@ -169,9 +169,10 @@ $('.thumb_cart .left a').focus(
     }
 )
 
-$('.love-box, .mob-drop').focus(
+$('.love-box, .mob-drop').blur(
     function(){
         $('.right').css("opacity", "0").css("backgroundColor", "transparent");
+        $('.header-cart').removeClass('open');
     }
 )
 

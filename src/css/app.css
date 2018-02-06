@@ -9093,16 +9093,16 @@ a#cartcontentsheader {
   padding: 10px;
 }
 .thumb_cart .left:hover + .right {
-  opacity: 1;
-  background-color: white;
+  opacity: 1 !important;
+  background-color: white !important;
   transition: all 0.3s;
 }
 .thumb_cart .left + .right {
   transition-delay: 0.2s;
 }
 .thumb_cart .right:hover {
-  opacity: 1;
-  background-color: white;
+  opacity: 1 !important;
+  background-color: white !important;
   transition: all 0.3s;
 }
 .thumb_cart .title,
