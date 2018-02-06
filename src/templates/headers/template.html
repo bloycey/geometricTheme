@@ -169,6 +169,12 @@ $('.thumb_cart .left a').focus(
     }
 )
 
+$('.love-box, .mob-drop').focus(
+    function(){
+        $('.right').css("opacity", "0").css("backgroundColor", "transparent");
+    }
+)
+
 $('.cart-box').mouseleave(
     function() {
         $('.header-cart').removeClass('open');
