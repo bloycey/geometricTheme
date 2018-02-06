@@ -163,6 +163,12 @@ $('.cart-box').focus(
     }
 )
 
+$('.thumb_cart .left a').focus(
+    function(){
+        $('.right').css("opacity", "1").css("backgroundColor", "white");
+    }
+)
+
 $('.cart-box').mouseleave(
     function() {
         $('.header-cart').removeClass('open');

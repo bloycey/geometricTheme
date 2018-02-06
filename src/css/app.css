@@ -9092,8 +9092,7 @@ a#cartcontentsheader {
   opacity: 0;
   padding: 10px;
 }
-.thumb_cart .left:hover + .right,
-.thumb_cart .left a:focus + .right {
+.thumb_cart .left:hover + .right {
   opacity: 1;
   background-color: white;
   transition: all 0.3s;
@@ -9101,8 +9100,7 @@ a#cartcontentsheader {
 .thumb_cart .left + .right {
   transition-delay: 0.2s;
 }
-.thumb_cart .right:hover,
-.thumb_cart .right:focus {
+.thumb_cart .right:hover {
   opacity: 1;
   background-color: white;
   transition: all 0.3s;
