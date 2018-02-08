@@ -10358,6 +10358,9 @@ li.mobile-third-lvl:last-child {
   padding: 3px 0;
   margin: 0;
 }
+.first-level-li:hover .down-caret-menu {
+  color: #ffffff;
+}
 .second-lvl-menu {
   padding-left: 20px;
 }
