@@ -28,7 +28,7 @@ By default this tag is set to true. -->
 			</div>
 
 			<div class="col-xs-12 col-md-7 subcategory-items text-center">
-			[%if [@content_type_name@] eq "Brand"%]
+			[%if [@content_type_name@] ne "Brand"%]
 				[%content_menu content_type:'category' start_category:'[@content_id@]' sortby:'sortorder' show_empty:'1'%]
 					[%param header%]		
 					[%/param%]
