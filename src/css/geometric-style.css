@@ -670,7 +670,18 @@ hr {
   }
   .n-responsive-content a {
 	color: #cc5c5c /*{Primary-Site-Colour}*/;
-  }
+	}
+	
+	footer h4 {
+		font-size: 35px;
+		color: white; /*{Footer-Heading-Colour}*/
+	}
+
+	footer li a {
+		color: #ffffff; /*{Footer-Menu-Item-Colour}*/
+			font-size: 15px;
+	}
+
   .n-responsive-content a:hover {
 	text-decoration: underline;  
 } 
