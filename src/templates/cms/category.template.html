@@ -8,16 +8,6 @@ By default this tag is set to true. -->
 
 <section class="category-header neutral-dark-background">
 
-<pre>[%debug show_data:'1'/%]</pre>
-
-<h2>
-Content Full path: [@content_fullpath@]
-Content type code: [@content_type_code@]
-Content type id: [@content_type_id@]
-Content type name: [@content_type_name@]
-
-</h2>
-
 <div class="row">
 		<div class="container wide-container category-heading-wrapper" >
 			<div class="col-xs-12 col-md-5 category-heading">
@@ -38,6 +28,7 @@ Content type name: [@content_type_name@]
 			</div>
 
 			<div class="col-xs-12 col-md-7 subcategory-items text-center">
+			[%if [@content_type_name@] eq "Brand"%]
 				[%content_menu content_type:'category' start_category:'[@content_id@]' sortby:'sortorder' show_empty:'1'%]
 					[%param header%]		
 					[%/param%]
@@ -59,6 +50,13 @@ Content type name: [@content_type_name@]
 						</h4>
 					[%/param%]
 				[%/content_menu%]
+			[%else%]
+			<h4 class="white">
+					[@content_short_description1@]
+					[@content_short_description2@]
+					[@content_short_description3@]
+				</h4>
+			[%/if%]
 			</div>	
 		</div>
 </div>
