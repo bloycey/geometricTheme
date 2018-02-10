@@ -6,14 +6,14 @@
         <form id="wishform">
         <!--##[%END PARAM%]##-->
 		<!--##[%PARAM *body%]##-->
-		<div class="radio" onclick="load_wishlist([@wishlist_id@])">
+		<div class="radio wish-radio" onclick="load_wishlist([@wishlist_id@])">
 				<label class="wishlist-single"><input type="radio" name="optradio" value="[@wishlist_id@]" data-id="[@wishlist_id@]">[@wishlist_name@] <span class="" onClick="deleteList('[%URL page:'account' type:'wishlist' id:'[@wishlist_id@]' qs:'proc=deletelist' %][%END URL%]')"><i class="fa fa-trash-o icon-white"></i>  </span></label>
-			</div>
+		</div>
         <hr>
         <!--##[%END PARAM%]##-->
         <!--##[%PARAM *footer%]##-->
     </form>
-    <a onclick="load_wishlistList()" class="btn tertiary-color tertiary-color-hover tertiary-border">Refresh Wishlist  <i class="fa fa-refresh wishlist-refresh-icon tertiary-color"></i></a>
+    <a onclick="load_wishlistList()" class="btn tertiary-color tertiary-color-hover tertiary-border hidden">Refresh Wishlist  <i class="fa fa-refresh wishlist-refresh-icon tertiary-color"></i></a>
     </div>
     
 

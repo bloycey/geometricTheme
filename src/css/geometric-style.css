@@ -685,3 +685,7 @@ hr {
   .n-responsive-content a:hover {
 	text-decoration: underline;  
 } 
+
+#wishform .fa-trash-o:hover {
+  color: #cc5c5c /*{Primary-Site-Colour}*/;
+}
