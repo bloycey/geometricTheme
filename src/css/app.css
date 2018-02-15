@@ -9787,6 +9787,12 @@ a:hover {
   -o-animation: fadeInUp 0.3s;
   animation: fadeInUp 0.3s;
 }
+.small,
+.small a,
+.small a:active,
+.small a:hover {
+  font-size: 14px;
+}
 /***********END DOCUMENT STYLES***************/
 /***********HEADER STYLES********************/
 #main-content.container-fluid {
