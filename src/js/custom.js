@@ -199,19 +199,13 @@ $('.mob-drop').click(function(){
     
 var sideNav = $("#wishlistSideNav");
 
-// function mobileWishInit() {
-//     $('.wish-sidebar-container').hide();
-//     $('#mob-menu').show();
-//     $('#menu-icon-open').addClass('secondary-color').css('fontSize', '30px');
-//     $('#love-icon-open').removeClass('secondary-color').css('fontSize', '22px');
-// }
+function mobileWishInit() {
+    $('.wish-sidebar-container').hide();
+    $('#mob-menu').show();
+    $('#menu-icon-open').addClass('secondary-color').css('fontSize', '30px');
+    $('#love-icon-open').removeClass('secondary-color').css('fontSize', '22px');
+}
 
-// function desktopWishInit() {
-//     $('#mob-menu').hide();
-//     $('.wish-sidebar-container').show();
-//     $('#love-icon-open').addClass('secondary-color').css('fontSize', '30px');
-//     $('#menu-icon-open').removeClass('secondary-color').css('fontSize', '22px');
-// }
 
 function openWishMenu() {
     //Set width of sidenav based on device screensize
@@ -248,6 +242,9 @@ function openWishMenu() {
     }
 }} 
 
+$('.open-wishlist-menu .wishlist-menu-container').click(function(){ 
+    mobileWishInit(); 
+})
 
 $('#background-overlay, .closebtn, .close-fab').click(function(){
     closeNav();
