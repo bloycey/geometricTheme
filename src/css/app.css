@@ -10990,9 +10990,14 @@ a#cartcontentsheader {
   transform: translateY(-5px);
 }
 .thumbnail-price {
-  font-size: 30px;
+  font-size: 25px;
   margin-bottom: 23px;
   margin-bottom: 0;
+}
+@media only screen and (min-width: 992px) {
+  .thumbnail-price {
+    font-size: 35px;
+  }
 }
 .product-image-wrapper {
   position: relative;
@@ -11011,7 +11016,7 @@ a#cartcontentsheader {
   height: auto;
   margin-top: 0;
   margin-bottom: 0;
-  font-size: 25px;
+  font-size: 20px;
   padding: 10px 0;
   max-width: 100%;
   line-height: 1;
@@ -11029,6 +11034,7 @@ a#cartcontentsheader {
     height: 50px;
     margin-top: 20px;
     padding: 0;
+    font-size: 25px;
   }
 }
 @media only screen and (min-width: 992px) {
