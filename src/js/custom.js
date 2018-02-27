@@ -200,10 +200,7 @@ $('.mob-drop').click(function(){
 var sideNav = $("#wishlistSideNav");
 
 function mobileWishInit() {
-    $('.wish-sidebar-container').hide();
     $('#mob-menu').show();
-    $('#menu-icon-open').addClass('secondary-color').css('fontSize', '30px');
-    $('#love-icon-open').removeClass('secondary-color').css('fontSize', '22px');
 }
 
 
