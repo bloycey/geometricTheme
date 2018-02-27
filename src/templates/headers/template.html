@@ -38,25 +38,7 @@
 <div id="wishlistSideNav" class="wishlistSideNav">
     <div class="sidebar-container">
         <div class="wish-sidebar-container">
-            <h2 class="wishlist-label tertiary-background">My Wishlists</h2>
-                <!-- loads the page for deleting the wishlist in a hidden iframe  -->
-                    <iframe id="wishlist-delete" src="" frameborder="0" style="display:none"></iframe>
-                <!-- If logged in -->
-                    [%USER id:'username' if:'ne' value:''%]
-                            [%load_ajax_template id:'_wishlistList' type:'content' template:'wishlist_list' preload:'0' tmpl_preview:'y'/%]
-                        <div id="wishlist-items">
-                            [%load_ajax_template id:'_wishlist' type:'content' template:'wishlist_ajax' preload:'0' tmpl_preview:'n'/%]
-                        </div>   
-                    [%END USER%]
-                <!-- If not logged in -->
-                    [%USER id:'username' if:'eq' value:''%]
-                    <div class="wishlist-login">
-                        <p>Once logged in all your wishlists will appear here.</p>
-                        <p><strong>Login / Register using the link below</strong></p>
-                        <a href="/_myacct/" class="btn primary-btn-solid">Login to [@config:company_name@]</a>
-                    </div>
-                    [%END USER%]
-            </div>
+        </div>
             <ul class="nav navbar-nav closed-menu" id="mob-menu">
                 <h2 class="wishlist-label tertiary-background">Categories</h2> 
                     <div class="mob-menu-items">
@@ -137,10 +119,6 @@
                     </div>
                 </button>
             </a>
-                <!-- Heart Icon (desktop) -->
-                <button class="love-box primary-fab white-background wishlist-love-container primary-border text-center hidden-xs" data-toggle="tooltip" title="Wishlists" data-placement="left">
-                        <i class="ion-ios-heart wishlist-love primary-color center-absolute "></i>
-                </button>
                 <!-- Menu Icon (mobile) -->
                 <button class="love-box primary-fab white-background wishlist-menu-container primary-border text-center hidden-sm hidden-md hidden-lg">
                         <i class="icon ion-navicon wishlist-menu primary-color center-absolute "></i>
