@@ -742,11 +742,11 @@ font-size: 19px;
 
 .menu-container .dropdown-menu > li > a {
   display: inline-block;
+  white-space: normal; 
 }
 
 .dropdown-submenu {
   position: relative;
-  white-space: nowrap;
 }
 
 .dropdown-submenu a {
@@ -764,6 +764,7 @@ font-size: 19px;
     transform: translateX(-50%);
     padding: 20px;
     box-shadow: 0 0px 20px rgba(0,0,0,0.19), 0 3px 10px rgba(0,0,0,0.23);
+    width: 218px; /*Width is required to prevent the tranform/blurry-text bug */
 }
 
 .arrow_box:after, .arrow_box:before {
