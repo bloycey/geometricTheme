@@ -235,8 +235,6 @@ function openWishMenu() {
         $('.open-wishlist-menu').show();
 
         document.documentElement.style.overflowY = "hidden";
-        $('#wishlist-items').hide();
-        $.load_ajax_template('_wishlistList');
         wishlistOpen = true;
     } 
     else {
@@ -314,42 +312,11 @@ $('.cart-box').mouseleave(
 
 });
 
- //Wishlist Sidebar
-   
-    $(".primary-fab").click(function(){
-        if(wishlistOpen === false) {
-        load_wishlistList();
-        }
-    })
+ //Menu Sidebar
 
     $('.sub-category-toggle').click(function(){
         $(this).toggleClass('fa-angle-down fa-angle-up');
     })
-
-	function load_wishlist(wishlist){
-        $('#loader').css('display', 'block');
-        $('.wishlist-thumbs').hide();
-         $.load_ajax_template('_wishlist',{mylist:wishlist},{'onLoad':function(){
-             $('#loader').fadeOut('slow');
-             $('.wishlist-thumbs').fadeIn('slow');
-         }});
-         $('#wishlist-items').show();
-    }  
-        
-    function load_wishlistList(){
-        var selected = $('input[name=optradio]:checked', '#wishform').data("id");
-        var selectedVal = $('input[name=optradio]:checked', '#wishform').val();
-        $('#wishlist-items').show();
-        load_wishlist(selectedVal);   
-    }
-
-    function deleteList(url){
-        $("#wishlist-delete").attr("src", url);
-        $("#wishlist-delete").load(function(){
-            $.load_ajax_template('_wishlistList');
-            $('#wishlist-items').hide();
-        })    
-    }
 
 /*******/
 
