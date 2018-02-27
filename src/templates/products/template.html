@@ -123,7 +123,8 @@ var variationName = $('#variationData').data('variationname');
 
 //Slick Slider. Determine how many images there are. Only apply center mode if more than 3 images. Otherwise display a single image. This is due to a bug in Slick. Hopefully will be fixed soon.  
 
-var numImages = $('img.pp-product-img').length;
+function initSlider(){
+	var numImages = $('img.pp-product-img').length;
 var setCenter;
 var numslides;
 if (numImages > 3) {
@@ -156,6 +157,10 @@ $('.product-image-slider').slick({
 	}
   ]
 }); 
+
+}
+
+initSlider();
 
 		}); //Close document ready.
 </script>
