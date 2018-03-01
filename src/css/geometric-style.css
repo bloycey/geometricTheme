@@ -374,6 +374,12 @@ hr {
 .primary-color {
 	color: #cc5c5c /*{Primary-Site-Colour}*/;
 }
+
+::selection {
+	background: #cc5c5c /*{Primary-Site-Colour}*/;
+	color: #ffffff;
+}
+
 .primary-color-opacity {
 	color: rgba(204, 92, 92, 0.8);
 }
