@@ -9872,7 +9872,7 @@ a:hover {
   transition: all ease 0.5s;
   z-index: 7000;
 }
-.wishlistSideNav {
+.slideoutSideNav {
   height: 100%;
   width: 75%;
   /* This width, when added to the 'left' value in the click event for this element in the header.html template, must equal 100% */
@@ -9891,17 +9891,17 @@ a:hover {
   transition: all 0.5s ease-in-out;
 }
 @media only screen and (min-width: 767px) {
-  .wishlistSideNav {
+  .slideoutSideNav {
     width: 50%;
   }
 }
 @media only screen and (min-width: 992px) {
-  .wishlistSideNav {
+  .slideoutSideNav {
     width: 30%;
   }
 }
 @media only screen and (min-width: 1400px) {
-  .wishlistSideNav {
+  .slideoutSideNav {
     width: 25%;
   }
 }
@@ -9909,12 +9909,12 @@ a:hover {
   height: 100%;
   overflow: auto;
 }
-.wishlistSideNav a {
+.slideoutSideNav a {
   text-decoration: none;
   transition: 0.3s;
 }
 /* Position and style the close button (top right corner) */
-.wishlistSideNav .closebtn {
+.slideoutSideNav .closebtn {
   position: absolute;
   top: -10px;
   right: 10px;
