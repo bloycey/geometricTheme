@@ -10388,7 +10388,7 @@ li.mobile-third-lvl:last-child {
 .menu-fab {
   margin-bottom: 5px;
 }
-.open-wishlist-menu {
+.open-sidenav {
   display: none;
 }
 .navbar-nav.closed-menu {
@@ -11041,9 +11041,6 @@ a#cartcontentsheader {
   padding: 20px 15px 20px 15px;
   color: #ffffff;
   font-size: 23px;
-  position: absolute;
-  bottom: 0;
-  left: 0px;
   width: 100%;
 }
 @media only screen and (min-width: 992px) {
@@ -11052,10 +11049,6 @@ a#cartcontentsheader {
     padding: 40px 20px 40px 20px;
     color: #ffffff;
     font-size: 30px;
-    position: absolute;
-    /* top: 12px; */
-    left: 0px;
-    bottom: auto;
     width: auto;
     margin-left: auto;
   }
