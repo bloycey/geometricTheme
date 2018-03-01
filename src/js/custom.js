@@ -187,9 +187,9 @@ function stickIt() {
   }
 }
       
-var wishlistOpen = false; 
+var sideMenuOpen = false; 
     $('.primary-fab').click(function(){
-        openWishMenu();
+        openSideMenu();
     })
 
 //Toggle mobile menu arrows
@@ -197,20 +197,20 @@ $('.mob-drop').click(function(){
     $(this).find('.fa').toggleClass('fa-angle-down fa-angle-up');
 })
     
-var sideNav = $("#wishlistSideNav");
+var sideNav = $("#slideoutSideNav");
 
-function mobileWishInit() {
+function mobileSidenavInit() {
     $('#mob-menu').show();
 }
 
 
-function openWishMenu() {
+function openSideMenu() {
     //Set width of sidenav based on device screensize
-    if (wishlistOpen === false) {
+    if (sideMenuOpen === false) {
         $('#background-overlay').addClass('overlay-applied');
             if ($(window).width() < 767) {
                 $(sideNav).css("left", "25%");
-                mobileWishInit();
+                mobileSidenavInit();
             } else if ($(window).width() < 992){
                 $(sideNav).css("left", "50%");
                 desktopWishInit();
@@ -222,25 +222,23 @@ function openWishMenu() {
                 desktopWishInit();
             }
         
-        $('.closed-wishlist-menu').hide();
-        $('.open-wishlist-menu').show();
+        $('.closed-sidenav').hide();
+        $('.open-sidenav').show();
 
         document.documentElement.style.overflowY = "hidden";
-        wishlistOpen = true;
+        sideMenuOpen = true;
     } 
     else {
         //If window is already open then toggle the menu panel.
         if ($(window).width() < 767) {
         $('#mob-menu').show();
-        $('.wish-sidebar-container').hide();
     } else {
         $('#mob-menu').hide();
-        $('.wish-sidebar-container').show();
     }
 }} 
 
-$('.open-wishlist-menu .wishlist-menu-container').click(function(){ 
-    mobileWishInit(); 
+$('.open-sidenav .sidenav-menu-container').click(function(){ 
+    mobileSidenavInit(); 
 })
 
 $('#background-overlay, .closebtn, .close-fab').click(function(){
@@ -251,15 +249,15 @@ function closeNav() {
     $(sideNav).css('left', '100%');
     $('#background-overlay').removeClass('overlay-applied');
         document.documentElement.style.overflowY = "auto";
-    wishlistOpen = false;
-    $('.closed-wishlist-menu').show();
-    $('.open-wishlist-menu').hide();
+    sideMenuOpen = false;
+    $('.closed-sidenav').show();
+    $('.open-sidenav').hide();
 };
 
 // On resizing window close the sidemenu.
 
 $(window).on('resize', function(){
-    if (wishlistOpen === true) {
+    if (sideMenuOpen === true) {
         closeNav();
     }
 })
