@@ -1,7 +1,7 @@
 <div class="thumbnail-width col-xs-12 col-sm-12 col-md-6 [%if [@sidebarOpen@] eq 'true'%]col-lg-4[%else%] col-lg-3 [%/if%]">
     <div class="product neutral-mid-border">
           <div class="product-image-wrapper col-xs-6 col-md-12 center-table-sm-down">
-              <div class="hidden-md hidden-lg mobile-thumbnail-wishlist">
+              <div class="mobile-thumbnail-wishlist">
                   [%if [@config:show_wishlist@]%]
                   <span class="product-wishlist">
                   [%in_wishlist id:'[@SKU@]' %]
@@ -16,7 +16,7 @@
                             [%param if_false%]
                               <a class="wishlist_toggle unselected" rel="[@SKU@]">
                                   <div class="mobile-nolove-icon-wrapper text-center"> 
-                                <span class="add" rel="wishlist_text[@SKU@]"><i class="fa fa-heart-outline wish-nolove primary-color text-center mobile-wish-icon"></i></span>
+                                <span class="add" rel="wishlist_text[@SKU@]"><i class="fa fa-heart-o wish-nolove primary-color text-center mobile-wish-icon"></i></span>
                                 </div>
                               </a>
                               
@@ -40,23 +40,6 @@
                     <span class="sale-tag secondary-background ">On Sale</span>
                   [%/if%]
               </div>
-  
-              <div class="thumbnail-overlay hidden-xs"> 
-                <div class="thumbnail-wish-wrapper wish-overlay primary-background">
-                      [%if [@config:show_wishlist@]%]
-                      <span class="product-wishlist">
-                          [%in_wishlist id:'[@SKU@]' %]
-                            [%param if_true%]
-                                <a class="wishlist_toggle btn btn-lg btn-block" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]"><i class="fa fa-heart wish-love white text-center"></i></span></a>
-                            [%/param%]
-                            [%param if_false%]
-                                <a class="wishlist_toggle btn btn-lg btn-block" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]"><i class="fa fa-heart-o wish-nolove white text-center"></i></span></a>
-                            [%/param%]
-                          [%/in_wishlist%]
-                      </span>
-                  [%/if%]
-                </div>
-              </div> 
           </div>
 
                   <div class="product-details-wrapper white-background clearfix col-xs-6 col-md-12 center-table-sm-down">

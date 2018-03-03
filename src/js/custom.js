@@ -303,24 +303,3 @@ $('.cart-box').mouseleave(
     })
 
 /*******/
-
-
-$('.product-image-wrapper').hover(function(){
-	if($(window).width() > 992) {
-	$(this).find('.thumbnail-wish-wrapper').addClass('display-block animated fadeInUp');
-	}
-});
-
-$('.product-image-wrapper').mouseleave(function(){
-	if($(window).width() > 992) {
-	$(this).find('.thumbnail-wish-wrapper').removeClass('display-block animated fadeInUp');
-	}
-});
-
-
-$('.thumbnail-wish-wrapper').click(function(){
-	$('.love-box').addClass('animated bounce');
-	setTimeout(function(){ 
-		$('.love-box').removeClass('animated bounce');
-	}, 3000);	
-})	
