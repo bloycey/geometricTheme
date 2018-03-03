@@ -8,7 +8,7 @@
                             [%param if_true%]
                               <a class="wishlist_toggle selected" rel="[@SKU@]">
                                 <div class="mobile-love-icon-wrapper  text-center">
-                                <span class="remove" rel="wishlist_text[@SKU@]"><i class="icon ion-ios-heart wish-love primary-color text-center mobile-wish-icon"></i></span>
+                                <span class="remove" rel="wishlist_text[@SKU@]"><i class="fa fa-heart wish-love primary-color text-center mobile-wish-icon"></i></span>
                               </div>
                             </a>
                             
@@ -16,7 +16,7 @@
                             [%param if_false%]
                               <a class="wishlist_toggle unselected" rel="[@SKU@]">
                                   <div class="mobile-nolove-icon-wrapper text-center"> 
-                                <span class="add" rel="wishlist_text[@SKU@]"><i class="icon ion-ios-heart-outline wish-nolove primary-color text-center mobile-wish-icon"></i></span>
+                                <span class="add" rel="wishlist_text[@SKU@]"><i class="fa fa-heart-outline wish-nolove primary-color text-center mobile-wish-icon"></i></span>
                                 </div>
                               </a>
                               
@@ -47,10 +47,10 @@
                       <span class="product-wishlist">
                           [%in_wishlist id:'[@SKU@]' %]
                             [%param if_true%]
-                                <a class="wishlist_toggle btn btn-lg btn-block" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]"><i class="icon ion-ios-heart wish-love white text-center"></i></span></a>
+                                <a class="wishlist_toggle btn btn-lg btn-block" rel="[@SKU@]"><span class="remove" rel="wishlist_text[@SKU@]"><i class="fa fa-heart wish-love white text-center"></i></span></a>
                             [%/param%]
                             [%param if_false%]
-                                <a class="wishlist_toggle btn btn-lg btn-block" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]"><i class="icon ion-ios-heart-outline wish-nolove white text-center"></i></span></a>
+                                <a class="wishlist_toggle btn btn-lg btn-block" rel="[@SKU@]"><span class="add" rel="wishlist_text[@SKU@]"><i class="fa fa-heart-outline wish-nolove white text-center"></i></span></a>
                             [%/param%]
                           [%/in_wishlist%]
                       </span>

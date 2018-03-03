@@ -8,8 +8,8 @@
 			$.addToWishList({
 				'class': 'wishlist_toggle',
 				'textclass': 'wishlist_text',
-				'htmlon': '<i class="icon ion-ios-heart wish-love white text-center"></i>',
-				'htmloff': '<i class="icon ion-ios-heart-outline wish-nolove white text-center"></i>',
+				'htmlon': '<i class="fa fa-heart wish-love white text-center"></i>',
+				'htmloff': '<i class="fa fa-heart-o wish-nolove white text-center"></i>',
 				'tooltip_css': 'whltooltips'
 			});
 			// Ajax Add To Cart
