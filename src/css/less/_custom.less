@@ -1254,8 +1254,20 @@ a#cartcontentsheader {
   right: 10px;
 }
 
-.mobile-wish-icon {
+.wish-icon.fa {
   font-size: 25px;
+}
+
+@media only screen and (min-width: 992px)  {
+  .wish-icon.fa {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-image-wrapper:hover .wish-icon.fa {
+    opacity: 1;
+  }
+
 }
 
 
