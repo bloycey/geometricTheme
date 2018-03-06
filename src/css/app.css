@@ -9776,7 +9776,7 @@ a:hover {
   text-decoration: none;
 }
 .spacer {
-  height: 50px;
+  height: 20px;
   width: 100%;
 }
 .fadeInUp {
@@ -11740,7 +11740,7 @@ footer .fa {
 }
 .breadcrumb {
   background-color: transparent;
-  margin-top: 40px;
+  padding: 8px 0;
 }
 .search-results-header + .categories-wrapper {
   margin-top: 80px;
