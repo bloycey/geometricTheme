@@ -677,11 +677,11 @@ hr {
 	
 	footer h4 {
 		font-size: 35px;
-		color: white; /*{Footer-Heading-Colour}*/
+		color: #ffffff /*{Footer-Heading-Colour}*/;
 	}
 
 	footer li a {
-		color: #ffffff; /*{Footer-Menu-Item-Colour}*/
+		color: #ffffff /*{Footer-Menu-Item-Colour}*/;
 			font-size: 15px;
 	}
 
