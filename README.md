@@ -4,6 +4,8 @@ Geometric theme is a modern theme that balances great design with practical feat
 
 Geometric provides several advertising areas on the homepage and is the first Neto theme to feature an advertising panel with the eye-catching parallax effect. The product pages include a new stock validation feature along with a unique full width slider to showcase your images. 
 
+<img src="http://geometrictheme.neto.com.au/assets/images/geometric.png" alt="screenshot"/>
+
 Full Feature List:
 
 - Fixed category menu in header for ease of navigation.
