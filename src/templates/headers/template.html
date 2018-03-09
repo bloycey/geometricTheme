@@ -288,15 +288,15 @@
                             </ul>
                             [%/if%] [%/param%] [%param *level_2%]
 
-                            <li [%if [@next_level@]%]class="dropdown-submenu" [%/if%]><a href="[@url@]" class="neutral-dark primary-color-hover">[@name@]</a>[%if [@next_level@]%]<i class="fa fa-angle-down neutral-dark sub-category-toggle primary-color-hover" data-target=".[@hierarchy@]-menu" data-toggle="collapse"></i>[%/if%] [%if [@next_level@]%]
-                                <div class="[@hierarchy@]-menu collapse">
+                            <li [%if [@next_level@]%]class="dropdown-submenu" [%/if%]><a href="[@url@]" class="neutral-dark primary-color-hover">[@name@]</a>[%if [@next_level@]%]<i class="fa fa-angle-down neutral-dark sub-category-toggle primary-color-hover" data-target=".[@id@]-menu" data-toggle="collapse"></i>[%/if%] [%if [@next_level@]%]
+                                <div class="[@id@]-menu collapse">
                                     <ul class="second-lvl-menu">
                                         [@next_level@]
                                     </ul>
                                 </div>
 
                                 [%/if%] [%/param%] [%param *level_3%]
-                                <li><a href="[@url@]" class="neutral-dark primary-color-hover"> - [@name@]</a></li>
+                                <li><a href="[@url@]" class="neutral-dark primary-color-hover">[@name@]</a></li>
                                 [%/param%] [%/content_menu%]
                     </ul>
                 </div>
