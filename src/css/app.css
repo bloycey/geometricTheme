@@ -10539,6 +10539,15 @@ a#cartcontentsheader {
 /*********************/
 /****************************************************************************/
 /*************************** HERO SECTION **************************************/
+.neto-placeholder-rotator {
+  height: 100%;
+}
+.main-container {
+  margin-top: 50px;
+}
+.main-container + .homepage-carousel-wrapper {
+  margin-top: -50px;
+}
 .carousel-btn {
   margin-top: 10px;
 }
