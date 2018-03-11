@@ -10545,7 +10545,7 @@ a#cartcontentsheader {
 .page-header {
   margin-top: 25px;
 }
-.slick-list.draggable {
+.home-slider .slick-list.draggable {
   padding-bottom: 0px !important;
 }
 .carousel-btn {
