@@ -108,7 +108,7 @@
 		<input type="hidden" id="thumb[@rndm@][@SKU@]" name="thumb" value="[@thumb@]">
 		<input type="hidden" id="sku[@rndm@][@SKU@]" name="sku" value="[@SKU@]">
 		<div class="row btn-stack">
-				<div class="col-xs-12 col-md-4">
+				<div class="col-xs-6 col-sm-4">
 
 					[%if [@config:show_wishlist@]%]
 					<span class="product-wishlist">
@@ -136,10 +136,10 @@
 
 
 					</div> 
-			<div class="col-xs-12 col-md-4">
+			<div class="col-xs-6 col-sm-4">
 				<input type="number" min="[@min_qty@]" [%if [@store_quantity@] < 1 AND ![@config:ALLOW_NOSTOCK_CHECKOUT@]%]disabled [%/if%] class="form-control qty input-lg quantity-input" id="qty[@rndm@][@SKU@]" name="qty" value="[%data id:'min_qty' if:'ne' value:'0' %][@min_qty@][%end data%][%data id:'min_qty' if:'eq' value:'0' %]1[%end data%]" size="2"/>
 			</div>
-			<div class="col-xs-12 col-md-4">
+			<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 buying-options-btn-wrapper">
 					[%if [@form:disable_scripts@] ne 'true'%]
 			[%tracking_code type:'BuyingOptions' /%]
 			[%/if%]

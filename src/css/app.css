@@ -11305,6 +11305,14 @@ button#sidebarToggle:before {
   height: 0;
   z-index: 6000;
 }
+.buying-options-btn-wrapper {
+  margin-top: 20px;
+}
+@media only screen and (min-width: 767px) {
+  .buying-options-btn-wrapper {
+    margin-top: 0;
+  }
+}
 @media only screen and (min-width: 992px) {
   .stock-alert {
     bottom: 45px;
