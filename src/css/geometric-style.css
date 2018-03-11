@@ -467,12 +467,10 @@ hr {
 .primary-btn-ghost, .secondary-btn-ghost, .tertiary-btn-ghost, .primary-btn-solid, .secondary-btn-solid, .tertiary-btn-solid, .primary-btn-ghost-white, .secondary-btn-ghost-white, .tertiary-btn-ghost-white, .white-btn-ghost .disabled-btn  {
 	border-width: 1px;
 	border-style: solid;
-    transition: all 0.3s;
-    border-radius: 0px;
+  transition: all 0.3s;
+  border-radius: 0px;
 	font-size: 18px;
 	padding: 10px 20px;
-	transform: translateZ(0);
-  -webkit-font-smoothing: subpixel-antialiased;
 }
 @media only screen and (min-width: 1200px) and (max-width: 1800px)  {
 	.thumbnail-btn-wrapper .addtocart, .thumbnail-btn-wrapper .thumbnail-moreinfo {
@@ -644,9 +642,7 @@ hr {
   .home-ad-overlay {
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4));
   }
-  .mobile-search-bar  {
-	border-top: 1px solid #eaeaea;
-  }
+  
   #loader {
 	border: 16px solid #f3f3f3;
 	border-top-style: solid;

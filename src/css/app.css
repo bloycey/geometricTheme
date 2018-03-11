@@ -10427,6 +10427,10 @@ li.mobile-third-lvl:last-child {
   padding-top: 15px;
   padding-bottom: 15px;
 }
+.mobile-search-bar {
+  border-top: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+}
 .nsearchinput-pl.well {
   top: -6px;
   left: 0px;
@@ -10914,14 +10918,14 @@ a#cartcontentsheader {
     height: auto;
     margin-bottom: 75px;
   }
+  .product:hover {
+    box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
 }
 .list-product {
   overflow: visible;
   margin-bottom: 20px;
-}
-.product:hover {
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
 }
 .thumbnail-price {
   font-size: 25px;
