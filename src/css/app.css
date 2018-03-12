@@ -11475,6 +11475,8 @@ input.newsletter-btn {
   border-bottom-left-radius: 35px;
   padding-left: 35px;
   height: 70px;
+  border: 1px solid #ffffff;
+  box-shadow: none;
 }
 .home-ad-section {
   display: table;
