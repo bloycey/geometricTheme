@@ -10235,6 +10235,8 @@ li.mobile-third-lvl:last-child {
   margin-bottom: 0;
   box-shadow: 0 2px 2px -2px rgba(51, 51, 51, 0.37);
   padding-left: 0;
+  margin: 0 auto;
+  max-width: 95%;
 }
 .category-menu a {
   font-size: 18px;
