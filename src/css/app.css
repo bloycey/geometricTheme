@@ -11800,6 +11800,7 @@ footer .fa {
 input.form-control.newsletter-email {
   padding-right: 50px;
 }
+/*Classes for sticky header (improved 15/04/18)*/
 .sticky-nav {
   position: fixed;
   top: 0;
@@ -11807,3 +11808,7 @@ input.form-control.newsletter-email {
   width: 100%;
   z-index: 9999;
 }
+.mt-55 {
+  margin-top: 55px !important;
+}
+/************/

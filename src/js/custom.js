@@ -192,6 +192,7 @@ var waypoint = new Waypoint({
 	element: $('nav'),
 	handler: function(direction) {
 	  $('nav').toggleClass('sticky-nav');
+	  $('.main-container').toggleClass('mt-55');
 	}
   })
 });
