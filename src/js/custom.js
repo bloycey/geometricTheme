@@ -189,9 +189,9 @@ $('.addtocart').click(function(){
 
 $(document).ready(function() {
 var waypoint = new Waypoint({
-	element: $('.nav'),
+	element: $('nav'),
 	handler: function(direction) {
-	  $('.nav').toggleClass('sticky-nav');
+	  $('nav').toggleClass('sticky-nav');
 	}
   })
 });
