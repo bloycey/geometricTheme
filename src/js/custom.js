@@ -187,12 +187,14 @@ $('.addtocart').click(function(){
 //   }
 // }
 
+$(document).ready(function() {
 var waypoint = new Waypoint({
 	element: $('.nav'),
 	handler: function(direction) {
 	  $('.nav').toggleClass('sticky-nav');
 	}
   })
+});
       
 var sideMenuOpen = false; 
     $('.primary-fab').click(function(){
