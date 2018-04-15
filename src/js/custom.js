@@ -168,9 +168,11 @@ $(document).ready(function() {
 var waypoint = new Waypoint({
 	element: $('nav'),
 	handler: function(direction) {
-	  $('nav').toggleClass('sticky-nav');
-	  $('.main-container').toggleClass('mt-55');
-	}
+		if($(window).width() > 767){
+			$('nav').toggleClass('sticky-nav');
+			$('.main-container').toggleClass('mt-55');
+			}
+		}
   })
 });
       
