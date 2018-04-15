@@ -92,7 +92,7 @@ $(document).ready(function(){
     </div> 
 </div>
 
-[%if [@CONFIG:Hide_brands@] eq 'n'%]
+[%if [@CONFIG:Hide_brands@] ne 'y'%]
 <div class="container-fluid no-padding brands-panel-container neutral-light-background">
     <div class="container brands-panel neutral-light-background">
     [%thumb_list type:'content' content_type:'brand' template:'brand' limit:'12' sortby:'sortorder'%]
