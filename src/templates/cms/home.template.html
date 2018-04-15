@@ -92,7 +92,8 @@ $(document).ready(function(){
     </div> 
 </div>
 
-<div class="container-fluid no-padding brands-panel-container neutral-light-background [%if [@CONFIG:Hide_brands@] eq 'y'%]hidden [%/if%]">
+[%if [@CONFIG:Hide_brands@] eq 'n'%]
+<div class="container-fluid no-padding brands-panel-container neutral-light-background">
     <div class="container brands-panel neutral-light-background">
     [%thumb_list type:'content' content_type:'brand' template:'brand' limit:'12' sortby:'sortorder'%]
         [%param *header%]
@@ -107,6 +108,7 @@ $(document).ready(function(){
     [%/thumb_list%]
     </div>
 </div>
+[%/if%]
 
 <section class="homepage-categories">
     <div class="container"> 
