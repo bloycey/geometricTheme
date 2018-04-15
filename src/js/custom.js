@@ -166,7 +166,7 @@ $('.addtocart').click(function(){
 
 $(document).ready(function() {
 var waypoint = new Waypoint({
-	element: $('nav'),
+	element: $('.sticky-nav-wrapper'),
 	handler: function(direction) {
 		if($(window).width() > 767){
 			$('nav').toggleClass('sticky-nav');
