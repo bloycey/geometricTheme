@@ -169,8 +169,13 @@ var waypoint = new Waypoint({
 	element: $('.sticky-nav-wrapper'),
 	handler: function(direction) {
 		if($(window).width() > 767){
-			$('nav').toggleClass('sticky-nav');
-			$('.main-container').toggleClass('mt-55');
+				if(direction == 'down') {
+					$('nav').addClass('sticky-nav');
+					$('.main-container').addClass('mt-55');
+				} else {
+					$('nav').removeClass('sticky-nav');
+					$('.main-container').removeClass('mt-55');
+				}	
 			}
 		}
   })
