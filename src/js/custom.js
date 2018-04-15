@@ -164,28 +164,35 @@ $('.addtocart').click(function(){
 /*******/
 //Sticky Header Menu
 
-$('nav').addClass('original').clone().insertAfter('nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('background-color', 'rgba(255, 255, 255, 0.85)').css('z-index','500').removeClass('original').hide();
-scrollIntervalID = setInterval(stickIt, 10);
+// $('nav').addClass('original').clone().insertAfter('nav').addClass('cloned').css('position','fixed').css('top','0').css('margin-top','0').css('background-color', 'rgba(255, 255, 255, 0.85)').css('z-index','500').removeClass('original').hide();
+// scrollIntervalID = setInterval(stickIt, 10);
 
-function stickIt() {
-  var orgElementPos = $('.original').offset();
-  orgElementTop = orgElementPos.top;               
-  if ($(window).scrollTop() >= (orgElementTop)) {
-    // scrolled past the original position; now only show the cloned, sticky element.
+// function stickIt() {
+//   var orgElementPos = $('.original').offset();
+//   orgElementTop = orgElementPos.top;               
+//   if ($(window).scrollTop() >= (orgElementTop)) {
+//     // scrolled past the original position; now only show the cloned, sticky element.
 
-    // Cloned element should always have same left position and width as original element.     
-    orgElement = $('.original');
-    coordsOrgElement = orgElement.offset();
-    leftOrgElement = coordsOrgElement.left;  
-    widthOrgElement = orgElement.css('width');
-    $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
-    $('.original').css('visibility','hidden');
-  } else {
-    // not scrolled past the menu; only show the original menu.
-    $('.cloned').hide();
-    $('.original').css('visibility','visible');
-  }
-}
+//     // Cloned element should always have same left position and width as original element.     
+//     orgElement = $('.original');
+//     coordsOrgElement = orgElement.offset();
+//     leftOrgElement = coordsOrgElement.left;  
+//     widthOrgElement = orgElement.css('width');
+//     $('.cloned').css('left',leftOrgElement+'px').css('top',0).css('width',widthOrgElement).show();
+//     $('.original').css('visibility','hidden');
+//   } else {
+//     // not scrolled past the menu; only show the original menu.
+//     $('.cloned').hide();
+//     $('.original').css('visibility','visible');
+//   }
+// }
+
+var waypoint = new Waypoint({
+	element: $('.nav'),
+	handler: function(direction) {
+	  $('.nav').toggleClass('sticky-nav');
+	}
+  })
       
 var sideMenuOpen = false; 
     $('.primary-fab').click(function(){

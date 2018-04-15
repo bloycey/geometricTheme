@@ -11800,3 +11800,10 @@ footer .fa {
 input.form-control.newsletter-email {
   padding-right: 50px;
 }
+.sticky-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+}
