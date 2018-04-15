@@ -93,7 +93,7 @@ $(document).ready(function(){
 </div>
 
 
-<div class="container-fluid no-padding brands-panel-container neutral-light-background [%if [@CONFIG:Hide_brands@] eq 'y'%] hidden [%/if%]">
+<div class="container-fluid no-padding brands-panel-container neutral-light-background [@CONFIG:Hide_Brands@] [%if [@CONFIG:Hide_Brands@] eq 'y'%] hidden [%/if%]">
     <div class="container brands-panel neutral-light-background">
     [%thumb_list type:'content' content_type:'brand' template:'brand' limit:'12' sortby:'sortorder'%]
         [%param *header%]
