@@ -47,7 +47,16 @@
                       <div class="clearfix">
                         <p class="product-title neutral-dark">[%format type:'text' truemaxlength:'50' rmhtml:'1'%][@model@][%/FORMAT%]</p> 
                       </div>  
-                        <h3 class="text-center thumbnail-price">[%format type:'currency'%][@store_price@][%/format%]</h3>
+                        <h3 class="text-center thumbnail-price">
+                            [%if [@inpromo@]%]
+                              Now&nbsp;[%if [@has_child@]%]from&nbsp;[%/if%]
+                              <meta itemprop="priceValidUntil" content="[%format type:'date' format:'#Y-#M-#d'%][@promo_end@][%END format%]"/>
+                              <span itemprop="price" content="[@promo_price@]">[%format type:'currency'%][@promo_price@][%/format%]</span>
+                            [%else%]
+                              [%if [@has_child@]%]From&nbsp;[%/if%]
+                              <span itemprop="price" content="[@store_price@]">[%format type:'currency'%][@store_price@][%/format%]</span>
+                            [%/if%]
+                        </h3>
                     </a>  
                           <div class="thumbnail-btn-wrapper hidden-xs">
                             <form class="form-inline buying-options hidden-xs">
