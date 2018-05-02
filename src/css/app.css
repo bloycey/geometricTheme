@@ -11812,3 +11812,14 @@ input.form-control.newsletter-email {
   margin-top: 55px !important;
 }
 /************/
+.wrapper-header {
+  overflow: visible;
+}
+.nsearchinput-pl.well {
+  top: -3px;
+}
+@media only screen and (min-width: 992px) {
+  .category-heading-wrapper {
+    min-height: 145px;
+  }
+}
