@@ -11823,3 +11823,6 @@ input.form-control.newsletter-email {
     min-height: 145px;
   }
 }
+.pagination-label {
+  padding: 0 5px;
+}
