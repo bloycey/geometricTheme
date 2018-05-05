@@ -312,11 +312,11 @@ initSlider();
 									[%set [@data:ratings-count@] = 1 /%]
 									[%while [@data:ratings-count@] <= [@data:rating@]%]
 										[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-										<i class="icon ion-ios-star secondary-color" aria-hidden="true"></i>
+										<i class="fa fa-star secondary-color" aria-hidden="true"></i>
 									[%/while%]
 									[%while [@data:ratings-count@] <= 5%]
 										[%set [@data:ratings-count@] = [@data:ratings-count@]+1 /%]
-										<i class="icon ion-ios-star-outline secondary-color" aria-hidden="true"></i>
+										<i class="fa fa-star-o secondary-color" aria-hidden="true"></i>
 									[%/while%]
 								</a>
 					</div>
