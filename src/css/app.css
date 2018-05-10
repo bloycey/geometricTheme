@@ -11813,7 +11813,13 @@ input.form-control.newsletter-email {
 }
 /************/
 .wrapper-header {
-  overflow: visible;
+  overflow: visible !important;
+}
+.home-slider {
+  z-index: -1;
+}
+.sticky-nav-wrapper {
+  z-index: -1;
 }
 .nsearchinput-pl.well {
   top: -3px;
