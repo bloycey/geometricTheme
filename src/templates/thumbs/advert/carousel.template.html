@@ -1,17 +1,16 @@
-<div id="[@count@] carousel-background" class="item carousel-background [%if [@count@] eq '0'%]active[%/if%]">
-	<img src="[%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]">
+<div id="[@count@] carousel-background" class="item carousel-background [%if [@count@] eq '0'%]active[%/if%]" style="background-image: url([%asset_url type:'adw' id:'[@ad_id@]'%][%param default%][%cdn_asset html:'0' library:'images'%]default_product.gif[%/cdn_asset%][%end param%][%/asset_url%]); background-size:cover; background-repeat:no-repeat; background-position: center center; height: 100%;">
 	<a href="[@url@]">
 		[%if [@headline@] or [@description@] or [@linktext@]%]
-		<div class="carousel-caption">
-			<div class="center-absolute">
-				<div class="carousel-caption-inner white-background neutral-dark">
-					[%if [@headline@]%]<h1 class="neutral-dark-color no margins">[@headline@]</h1>[%/if%]
-					[%if [@description@]%]<p class="advert-description hidden-xs neutral-dark">[@description@]</p>[%/if%]
-					[%if [@linktext@]%]<p class="advert-description neutral-dark"><span class="btn btn-lg secondary-btn-ghost-white carousel-btn">[@linktext@]</span></p>[%/if%]
+			<div class="carousel-caption">
+				<div class="center-absolute">
+					<div class="carousel-caption-inner white-background neutral-dark">
+						[%if [@headline@]%]<h1 class="neutral-dark-color no margins">[@headline@]</h1>[%/if%]
+						[%if [@description@]%]<p class="advert-description hidden-xs neutral-dark">[@description@]</p>[%/if%]
+						[%if [@linktext@]%]<p class="advert-description neutral-dark"><span class="btn btn-lg secondary-btn-ghost-white carousel-btn">[@linktext@]</span></p>[%/if%]
+					</div>
 				</div>
+				<div></div>
 			</div>
-			<div></div>
-		</div>
 		[%/if%]
 	</a>
 </div>
