@@ -10570,6 +10570,11 @@ a#cartcontentsheader {
   margin-left: 10%;
   padding: 20px;
 }
+@media only screen and (max-width: 767px) {
+  .carousel-caption-inner {
+    padding: 5px;
+  }
+}
 @media only screen and (min-width: 767px) {
   .homepage-carousel-wrapper {
     height: 550px;
