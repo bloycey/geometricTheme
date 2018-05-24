@@ -10564,6 +10564,7 @@ a#cartcontentsheader {
   z-index: 10;
   color: #fff;
   text-align: center;
+  padding-bottom: 0px;
 }
 .carousel-caption-inner {
   width: 80%;
