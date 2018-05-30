@@ -11868,3 +11868,6 @@ input.form-control.newsletter-email {
 .color-inherit {
   color: inherit;
 }
+.fancybox-overlay-fixed {
+  z-index: 99999;
+}
