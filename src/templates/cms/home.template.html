@@ -92,23 +92,22 @@ $(document).ready(function(){
     </div> 
 </div>
 
-[%if [@CONFIG:Hide_Brands@] ne '1'%] 
-<div class="container-fluid no-padding brands-panel-container neutral-light-background">
-    <div class="container brands-panel neutral-light-background">
-    [%thumb_list type:'content' content_type:'brand' template:'brand' limit:'12' sortby:'sortorder'%]
-        [%param *header%]
-            <div class="row featured-brands">
-        [%/param%]
-        [%param *footer%]
+
+[%thumb_list type:'content' content_type:'brand' template:'brand' limit:'12' sortby:'sortorder'%]
+    [%param *header%]
+        <div class="container-fluid no-padding brands-panel-container neutral-light-background">
+            <div class="container brands-panel neutral-light-background">
+                <div class="row featured-brands">
+    [%/param%]
+    [%param *footer%]
+                </div>
+                <div class="show-brands-wrapper text-center">
+                    <a class="btn btn-md secondary-btn-ghost-white" href="/brands">Show All Brands</a> 
+                </div>
             </div>
-            <div class="show-brands-wrapper text-center">
-                <a class="btn btn-md secondary-btn-ghost-white" href="/brands">Show All Brands</a> 
-            </div>
-        [%/param%]
-    [%/thumb_list%]
-    </div>
-</div>
-[%/if%]
+        </div>
+    [%/param%]
+[%/thumb_list%]
 
 <section class="homepage-categories">
     <div class="container"> 
