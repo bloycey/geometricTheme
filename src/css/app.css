@@ -11871,3 +11871,6 @@ input.form-control.newsletter-email {
 .fancybox-overlay-fixed {
   z-index: 99999;
 }
+.modal {
+  z-index: 9999;
+}
