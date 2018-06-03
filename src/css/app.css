@@ -11829,7 +11829,7 @@ input.form-control.newsletter-email {
   z-index: -1;
 }
 .search-field {
-  z-index: 9999;
+  z-index: 1000;
 }
 .nsearchinput-pl.well {
   top: -3px;
