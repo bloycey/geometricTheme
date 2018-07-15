@@ -688,3 +688,10 @@ hr {
 #wishform .fa-trash-o:hover {
   color: #cc5c5c /*{Primary-Site-Colour}*/;
 }
+
+.blog-thumb-text-wrapper {
+	padding: 15px;
+	border-style: solid;
+	border-width: 5px;
+	border-color: #cc5c5c /*{Primary-Site-Colour}*/;
+}
