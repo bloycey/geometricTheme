@@ -10086,7 +10086,7 @@ li.mobile-third-lvl:last-child {
 }
 .top-bar .top-menu-link:after {
   padding-left: 10px;
-  content: '|';
+  content: "|";
 }
 .search-bar-col,
 .selling-points,
@@ -10648,7 +10648,7 @@ a#cartcontentsheader {
 }
 #homepage-content p,
 #homepage-content p span {
-  font-family: 'Source Sans Pro' !important;
+  font-family: "Source Sans Pro" !important;
   font-size: 16px !important;
 }
 @media only screen and (min-width: 767px) {
@@ -10801,14 +10801,14 @@ a#cartcontentsheader {
   transform: translate(-50%, -40%);
 }
 .wish-overlay .wish-nolove:after {
-  content: 'Click to add to wishlist!';
+  content: "Click to add to wishlist!";
   font-size: 18px;
   font-style: normal;
   color: white;
   margin-left: 10px;
 }
 .wish-overlay .wish-love:after {
-  content: 'Click to remove from wishlist';
+  content: "Click to remove from wishlist";
   font-size: 18px;
   font-style: normal;
   color: white;
@@ -11057,7 +11057,7 @@ a#cartcontentsheader {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: .5s ease;
+  transition: 0.5s ease;
   opacity: 0;
 }
 .category-overlay p {
@@ -11668,7 +11668,7 @@ footer .fa {
   }
 }
 .navbar-default {
-  background-color: #f8f8f8 ;
+  background-color: #f8f8f8;
   border-color: #e7e7e7;
 }
 .navbar-default .navbar-brand {
@@ -11785,7 +11785,7 @@ footer .fa {
 }
 .label {
   display: inline-block;
-  padding: .2em .6em .3em;
+  padding: 0.2em 0.6em 0.3em;
   font-size: 14px;
   font-weight: bold;
   line-height: 1;
@@ -11793,7 +11793,7 @@ footer .fa {
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
-  border-radius: .25em;
+  border-radius: 0.25em;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
@@ -11885,7 +11885,7 @@ input.form-control.newsletter-email {
 }
 .top-bar .dropdown-menu .top-menu-link:after {
   padding-left: auto;
-  content: '';
+  content: "";
   display: none;
 }
 .top-bar .top-menu-link {
@@ -11946,4 +11946,11 @@ input.form-control.newsletter-email {
     font-size: 16px;
   }
 }
-/*************/
+/******Fix mobile carousel*******/
+@media only screen and (max-width: 767px) {
+  .home-slider .slick-slide img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+  }
+}
