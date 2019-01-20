@@ -332,9 +332,11 @@
 
 <div class="product-description-panel text-center">
 
-[%if [@description@]%]
-<div class="product-description">[@description@]</div>
-[%/if%]
+	[%if [@description@]%]
+	<div class="product-description">[@description@]</div>
+	[%else%]
+	<div class="product-description">[@^description@]</div>
+	[%/if%]
 
 <div class="product-more-info">
 	<a class="product-more-info-text tertiary-btn-ghost" data-toggle="collapse" data-target="#moreProductInfo">More Information</a>
