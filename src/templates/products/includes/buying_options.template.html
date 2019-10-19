@@ -326,8 +326,9 @@
 		</div>
 	[%/if%]
 
-	[%load_ajax_template id:'_shipping' type:'item' template:'shipping_calc' preload:'1' tmpl_preview:'y'/%]
-
+	[%if [@config:show_shipping_calc@] and [@service_only@] eq 'n'%]
+		<hr/>[%load_template file:'products/includes/shipping_calc.template.html'/%]
+	[%/if%]
 </div>
 
 <div class="product-description-panel text-center">
@@ -343,5 +344,3 @@
 </div>
 
 </div>
-
-
