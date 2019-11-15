@@ -11954,6 +11954,7 @@ input.form-control.newsletter-email {
     object-fit: cover;
   }
 }
-#shipbox {
+#shipbox,
+.mb-1 {
   margin-bottom: 15px;
 }
