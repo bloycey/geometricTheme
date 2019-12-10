@@ -61,31 +61,6 @@
 								$(this).html("More Information");
 							}
 						})
-
-				
-
-			[%if [@config:ALLOW_NOSTOCK_CHECKOUT@] != 1%] 
-			$('.quantity-input').keyup(function(){
-			
-			var wantedQuantity = $('.quantity-input').val();
-			var variationQty = $('#variationData').data('variationqty');
-			var variationName = $('#variationData').data('variationname');
-
-				if (variationQty < wantedQuantity) {
-					$('.quantity-input').val(variationQty)
-					
-					var errormsg = "Sorry, we don't have " + wantedQuantity + " " + variationName + " in stock. Store quantity is currently: " + variationQty;
-
-					$('.stock-alert').html(errormsg).addClass("expandHeight");
-						setTimeout(function(){ 
-							$('.stock-alert').html('').removeClass('expandHeight');
-						}, 3000);
-				} 		
-			})
-
-			[%/if%]
-
-
 					},
 				}
 			});
@@ -94,29 +69,6 @@
 				$.kit_variationInit({});
 			[%/if%]
 
-//Stock Validation - Only on regular and variable products. 
-
-[%if [@config:ALLOW_NOSTOCK_CHECKOUT@] != 1%] 
-$('.quantity-input').keyup(function(){
-
-var wantedQuantity = $('.quantity-input').val();
-var variationQty = $('#variationData').data('variationqty');
-var variationName = $('#variationData').data('variationname');
-
-	if (variationQty < wantedQuantity) {
-		$('.quantity-input').val(variationQty)
-		
-		var errormsg = "Sorry, we don't have " + wantedQuantity + " " + variationName + " in stock. Store quantity is currently: " + variationQty;
-
-		$('.stock-alert').html(errormsg).addClass("expandHeight");
-			setTimeout(function(){ 
-				$('.stock-alert').html('').removeClass('expandHeight');
-			}, 3000);
-	} 		
-
-})
-[%/if%]
-
 //Toggle more information button
 			$('.product-more-info-text').click(function(){
 				if($(this).html() === "More Information") {
@@ -124,7 +76,7 @@ var variationName = $('#variationData').data('variationname');
 				} else {
 					$(this).html("More Information");
 				}
-			})
+			}) 
 
 //Slick Slider. Determine how many images there are. Only apply center mode if more than 3 images. Otherwise display a single image. This is due to a bug in Slick. Hopefully will be fixed soon.  
 
@@ -243,14 +195,12 @@ initSlider();
 			<ul class="breadcrumb" itemscope itemtype="http://schema.org/BreadcrumbList">
 				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
 					<a href="[@config:home_url@]" itemprop="item"><span itemprop="name">Home</span></a>
-					<meta itemprop="position" content="0" />
 				</li>
 		[%/param%]
 		[%param *body%]
-				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
-					<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
-					<meta itemprop="position" content="[%calc [@count@] + 1 /%]" />
-				</li>
+			<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+				<a href="[@url@]" itemprop="item"><span itemprop="name">[@name@]</span></a>
+			</li>
 		[%/param%]
 		[%param *footer%]
 			</ul>

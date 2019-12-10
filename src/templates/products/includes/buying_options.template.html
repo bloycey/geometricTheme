@@ -112,24 +112,24 @@
 
 					[%if [@config:show_wishlist@]%]
 					<span class="product-wishlist">
-					[%in_wishlist id:'[@SKU@]' %]
-							  [%param if_true%]
+						[%in_wishlist id:'[@SKU@]' %]
+							[%param if_true%]
 								<a class="wishlist_toggle selected" rel="[@SKU@]">
 								  <div class="btn primary-btn-ghost btn-block">
 								  <span class="remove" rel="wishlist_text[@SKU@]"><i class="fa fa-heart white text-center wishlist-icon-buyopt"></i></span>
 								</div>
 							  </a>
 							  
-							  [%/param%]
-							  [%param if_false%]
+							[%/param%]
+							[%param if_false%]
 								<a class="wishlist_toggle unselected" rel="[@SKU@]">
 									<div class="btn primary-btn-ghost btn-block"> 
 								  <span class="add" rel="wishlist_text[@SKU@]"><i class="fa fa-heart-o white text-center wishlist-icon-buyopt"></i></span>
 								  </div>
 								</a>
 								
-							  [%/param%]
-							[%/in_wishlist%]
+							[%/param%]
+						[%/in_wishlist%]
 						</span>
 					[%/if%]
 
@@ -137,7 +137,8 @@
 
 					</div> 
 			<div class="col-xs-6 col-sm-4">
-				<input type="number" min="[@min_qty@]" [%if [@store_quantity@] < 1 AND ![@config:ALLOW_NOSTOCK_CHECKOUT@]%]disabled [%/if%] class="form-control qty input-lg quantity-input" id="qty[@rndm@][@SKU@]" name="qty" value="[%data id:'min_qty' if:'ne' value:'0' %][@min_qty@][%end data%][%data id:'min_qty' if:'eq' value:'0' %]1[%end data%]" size="2"/>
+					<label class="sr-only" for="qty[@rndm@][@SKU@]">[@model@] quantity field</label>
+					<input type="number" min="[@min_qty@]" class="form-control qty input-lg quantity-input" id="qty[@rndm@][@SKU@]" name="qty" aria-label="[@model@] quantity field" value="[%data id:'min_qty' if:'ne' value:'0' %][@min_qty@][%end data%][%data id:'min_qty' if:'eq' value:'0' %]1[%end data%]" size="2"/>
 			</div>
 			<div class="col-xs-8 col-xs-offset-2 col-sm-4 col-sm-offset-0 buying-options-btn-wrapper">
 					[%if [@form:disable_scripts@] ne 'true'%]
