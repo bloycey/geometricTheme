@@ -59,6 +59,7 @@
                         </h3>
                     </a>  
                           <div class="thumbnail-btn-wrapper hidden-xs">
+                            [%if [@form:disable_scripts@] ne 'true'%][%tracking_code type:'Thumbnails' /%][%/if%]
                             <form class="form-inline buying-options hidden-xs">
                                 <input type="hidden" id="sku[@rndm@][@SKU@]" name="sku[@rndm@][@SKU@]" value="[@SKU@]">
                                 <input type="hidden" id="model[@rndm@][@SKU@]" name="model[@rndm@][@SKU@]" value="[@model@]">
